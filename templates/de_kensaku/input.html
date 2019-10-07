@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link href="{% static 'css/input.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<html>
+	<head>
+	</head>
+	<body>
+		<!-- 新しいタブで開きたい場合は form に target="_blank" を追加する -->
+		<form method="post" action="output" target="_blank">
+			<div class="search_container">
+				{% csrf_token %}
+				<input value="" autofocus placeholder="EnterでGoogle検索" required type="text" name="srch_str">
+				<input type="reset" value="&#xf057" class="far">
+			</div><br>
+
+			<p><strong>サーチエンジン</strong>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="Google" src="{% static 'img/Google.png' %}" width="90"><br>
+				</div>
+				<p>Google</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="Yahoo!JAPAN" src="{% static 'img/Yahoo!JAPAN.png' %}" width="90"><br>
+				</div>
+				<p>Yahoo!JAPAN</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="Bing" src="{% static 'img/Bing.png' %}" width="90"><br>
+				</div>
+				<p>Bing</p>
+			</div>
+			</p>
+
+			<p><strong>動画サービス</strong>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="YouTube" src="{% static 'img/YouTube.png' %}" width="90"><br>
+				</div>
+				<p>YouTube</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="ニコニコ動画" src="{% static 'img/ニコニコ動画.png' %}" width="90"><br>
+				</div>
+				<p>ニコニコ動画</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="FC2動画" src="{% static 'img/FC2動画.png' %}" width="90"><br>
+				</div>
+				<p>FC2動画</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="dailymotion" src="{% static 'img/dailymotion.png' %}" width="90"><br>
+				</div>
+				<p>dailymotion</p>
+			</div>
+			</p>
+
+			<p><strong>ショッピング</strong>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="Yahoo!ショッピング" src="{% static 'img/Yahoo!ショッピング.png' %}" width="90"><br>
+				</div>
+				<p>Yahoo!<br>ショッピング</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="楽天市場" src="{% static 'img/楽天市場.png' %}" width="90"><br>
+				</div>
+				<p>楽天市場</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="Amazon" src="{% static 'img/Amazon.png' %}" width="90"><br>
+				</div>
+				<p>Amazon</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="ヨドバシ.com" src="{% static 'img/ヨドバシ.com.png' %}" width="90"><br>
+				</div>
+				<p>ヨドバシ.com</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="LOHACO" src="{% static 'img/LOHACO.png' %}" width="90"><br>
+				</div>
+				<p>LOHACO</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="楽天西友ネットスーパー" src="{% static 'img/楽天西友ネットスーパー.png' %}" width="90"><br>
+				</div>
+				<p>楽天西友<br>ネットスーパー</p>
+			</div>
+			</p>
+
+			<p><strong>その他</strong>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="Yahoo!知恵袋" src="{% static 'img/Yahoo!知恵袋.png' %}" width="90"><br>
+				</div>
+				<p>Yahoo!知恵袋</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="note" src="{% static 'img/note.png' %}" width="90"><br>
+				</div>
+				<p>note</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="Twitter" src="{% static 'img/Twitter.png' %}" width="90"><br>
+				</div>
+				<p>Twitter</p>
+			</div>
+			<div class="text-posi">
+				<div class="dropshadow">
+					<input type="image" name="Facebook" src="{% static 'img/Facebook.png' %}" width="90"><br>
+				</div>
+				<p>Facebook</p>
+			</div>
+			</p>
+		</form>
+	</body>
+</html>
+{% endblock %}
