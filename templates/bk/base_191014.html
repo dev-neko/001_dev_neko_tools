@@ -1,3 +1,5 @@
+<!-- bootstrapを試すためにBK -->
+
 {% load static %}
 <html lang="ja">
 	<head>
@@ -5,30 +7,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title>{% block title %}豚猫ツール{% endblock %}</title>
 		<meta name="description" content="{% block description %}{% endblock %}">
+
 		<link rel="icon" href="{% static 'img/favicon.ico' %}">
-
-		<!-- fontawesome -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 		<!-- Footer blog responsive -->
 		<!-- 一番上の入れるとヘッダーの表示がおかしくなる -->
 		<!--
-		使ってないっぽいので無効化した
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		-->
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-		-->
 	</head>
 	<body>
 		<!-- headder -->
 		{% include "base/navbar.html" %}
 
 		<!-- content -->
-		<!-- ナビバー以外に余白を入れるために指定 -->
-		<div style="padding-left:10px;margin-left:10px;padding-right:10px;margin-right:10px;">
+		<!-- ナビバー以外に左に余白を入れるために指定 -->
+		<div style="padding-left:10px;margin-left:10px;">
 			{% block content %}
 			{% endblock %}
 		</div>
