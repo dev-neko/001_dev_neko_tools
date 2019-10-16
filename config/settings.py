@@ -11,10 +11,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-lz2^*l4p&#kkq_yt5x_ypku(qlc2aco6vlj!k9v@@bi*3tt%_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
-# ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['buta-neko-tools.com']
+DEBUG = True
+# DEBUG = False
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['buta-neko-tools.com']
 
 # Application definition
 INSTALLED_APPS = [

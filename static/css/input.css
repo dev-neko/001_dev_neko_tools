@@ -1,8 +1,8 @@
 .text-posi {
 	display: inline-block;
+	vertical-align: top;
 	text-align: center;
 	padding: 15px;
-	display:table-cell;
 }
 
 .dropshadow {
