@@ -99,5 +99,4 @@ def output(request):
 			open_url = srch_url_other[2] + input_data
 		elif re.search('Facebook', request_POST):
 			open_url = srch_url_other[3] + input_data
-
 	return HttpResponseRedirect(open_url)
