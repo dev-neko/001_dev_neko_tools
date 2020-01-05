@@ -2,16 +2,16 @@ import os
 
 # ------------------------------
 
-# ここはTeratermでvimで変更すればいいのでそのままデプロイする
+# デプロイする直前に変更する
 
 # python manage.py runserver
 # の時
-DEBUG = True
-ALLOWED_HOSTS = ['*']
+# DEBUG = True
+# ALLOWED_HOSTS = ['*']
 
 # 本番環境の時
-# DEBUG = False
-# ALLOWED_HOSTS = ['buta-neko-tools.com']
+DEBUG = False
+ALLOWED_HOSTS = ['buta-neko-tools.com']
 
 # ------------------------------
 
