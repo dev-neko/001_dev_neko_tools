@@ -2,16 +2,13 @@ import os
 
 # ------------------------------
 
-# デプロイする直前に変更する
-
+# デバッグ用
 # python manage.py runserver
-# の時
-# DEBUG = True
-# ALLOWED_HOSTS = ['*']
-
-# 本番環境の時
-DEBUG = False
-ALLOWED_HOSTS = ['buta-neko-tools.com']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
+# 本番環境用
+# DEBUG = False
+# ALLOWED_HOSTS = ['buta-neko-tools.com']
 
 # ------------------------------
 
@@ -114,7 +111,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = (
-	os.path.join(BASE_DIR, 'static'),
+ os.path.join(BASE_DIR, 'static'),
 )
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')

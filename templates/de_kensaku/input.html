@@ -30,18 +30,9 @@
 				</div>
 			</div>
 
-<!--
-bootstrapを追加する前
-		<form method="post" action="output" target="_blank">
-			<div class="search_container">
-				{% csrf_token %}
-				<input value="" autofocus placeholder="EnterでGoogle検索" required type="text" name="srch_str">
-				<input type="reset" value="&#xf057" class="far">
-			</div><br>
--->
-
 			<p><strong>サーチエンジン</strong>
 				<div class="form-row align-items-top">
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -50,6 +41,7 @@ bootstrapを追加する前
 							<p>Google</p>
 						</div>
 					</div>
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -58,6 +50,7 @@ bootstrapを追加する前
 							<p>Yahoo!JAPAN</p>
 						</div>
 					</div>
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -66,6 +59,7 @@ bootstrapを追加する前
 							<p>Bing</p>
 						</div>
 					</div>
+
 				</div>
 			</p>
 
@@ -128,13 +122,75 @@ bootstrapを追加する前
 							<p>楽天西友<br>ネットスーパー</p>
 						</div>
 					</div>
-				</div>
 
+					<div class="col-auto">
+						<div class="text-posi">
+							<div class="dropshadow">
+								<input type="image" name="ビックカメラ.com" src="{% static 'img/ビックカメラ.com.png' %}" width="90"><br>
+							</div>
+							<p>ビックカメラ.com</p>
+						</div>
+					</div>
+
+					<div class="col-auto">
+						<div class="text-posi">
+							<div class="dropshadow">
+								<input type="image" name="アイリスプラザ" src="{% static 'img/アイリスプラザ.png' %}" width="90"><br>
+							</div>
+							<p>アイリスプラザ</p>
+						</div>
+					</div>
+
+					<div class="col-auto">
+						<div class="text-posi">
+							<div class="dropshadow">
+								<input type="image" name="サンコーレアモノショップ" src="{% static 'img/サンコーレアモノショップ.png' %}" width="90"><br>
+							</div>
+							<p>サンコー<br>レアモノショップ</p>
+						</div>
+					</div>
+
+				</div>
+			</p>
+
+
+			<p><strong>オークション・フリマ</strong>
+				<div class="form-row align-items-top">
+
+					<div class="col-auto">
+						<div class="text-posi">
+							<div class="dropshadow">
+								<input type="image" name="ヤフオク!" src="{% static 'img/ヤフオク!.png' %}" width="90"><br>
+							</div>
+							<p>ヤフオク!</p>
+						</div>
+					</div>
+
+					<div class="col-auto">
+						<div class="text-posi">
+							<div class="dropshadow">
+								<input type="image" name="ラクマ" src="{% static 'img/ラクマ.png' %}" width="90"><br>
+							</div>
+							<p>ラクマ</p>
+						</div>
+					</div>
+
+					<div class="col-auto">
+						<div class="text-posi">
+							<div class="dropshadow">
+								<input type="image" name="メルカリ" src="{% static 'img/メルカリ.png' %}" width="90"><br>
+							</div>
+							<p>メルカリ</p>
+						</div>
+					</div>
+
+				</div>
 			</p>
 
 
 			<p><strong>動画サービス</strong>
 				<div class="form-row align-items-top">
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -143,6 +199,7 @@ bootstrapを追加する前
 							<p>YouTube</p>
 						</div>
 					</div>
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -151,6 +208,7 @@ bootstrapを追加する前
 							<p>ニコニコ動画</p>
 						</div>
 					</div>
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -159,6 +217,7 @@ bootstrapを追加する前
 							<p>FC2動画</p>
 						</div>
 					</div>
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -167,12 +226,14 @@ bootstrapを追加する前
 							<p>dailymotion</p>
 						</div>
 					</div>
+
 				</div>
 			</p>
 
 
 			<p><strong>その他</strong>
 				<div class="form-row align-items-top">
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -181,6 +242,7 @@ bootstrapを追加する前
 							<p>Yahoo!知恵袋</p>
 						</div>
 					</div>
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -189,6 +251,7 @@ bootstrapを追加する前
 							<p>note</p>
 						</div>
 					</div>
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -197,6 +260,7 @@ bootstrapを追加する前
 							<p>Twitter</p>
 						</div>
 					</div>
+
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -205,6 +269,16 @@ bootstrapを追加する前
 							<p>Facebook</p>
 						</div>
 					</div>
+
+					<div class="col-auto">
+						<div class="text-posi">
+							<div class="dropshadow">
+								<input type="image" name="GooglePlay" src="{% static 'img/GooglePlay.png' %}" width="90"><br>
+							</div>
+							<p>GooglePlay</p>
+						</div>
+					</div>
+
 				</div>
 			</p>
 		</form>
