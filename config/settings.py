@@ -7,8 +7,8 @@ import os
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 # 本番環境用
-# DEBUG = False
-# ALLOWED_HOSTS = ['buta-neko-tools.com']
+#DEBUG = False
+#ALLOWED_HOSTS = ['buta-neko-tools.com']
 
 # ------------------------------
 
