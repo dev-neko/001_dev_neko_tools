@@ -1,3 +1,7 @@
+<!-
+
+-->
+
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
@@ -15,7 +19,7 @@
 		gtag('config', 'UA-155316780-1');
 	</script>
 
-	<!-- サジェスト表示のために追加した ここから -->
+	<!-- サジェスト表示のために追加した ここから  -->
 	<!-- StyleSheet CDN -->
 	<!-- これは多分サジェストの部分を装飾している -->
 	<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
@@ -32,7 +36,7 @@
 </head>
 
 	<body>
-		<form method="post" action="output" target="_blank">
+		<form method="post" action="output">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-12 col-sm-10 col-md-8 col-lg-7">
@@ -310,7 +314,7 @@
 					$('#target').autocomplete({
 							source: function(request, response) {
 									$.ajax({
-											url: "http://www.google.com/complete/search",
+											url: "https://www.google.com/complete/search",
 											data: {hl:'ja', client:'firefox', q: request.term},
 											dataType: "jsonp",
 											type: "GET",
@@ -320,7 +324,7 @@
 									});
 							},
 							autoFocus: false,
-							delay: 300,
+							delay: 100,
 							minLength: 1,
 					});
 			});

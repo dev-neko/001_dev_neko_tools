@@ -1,3 +1,7 @@
+/*
+
+*/
+
 // ------------------------------
 
 // ペーストするボタン
@@ -33,7 +37,7 @@ const pasteText = (callback) => {
 //フォーカスを合わせる
 
 function clfc(){
-  document.getElementById('target').focus();
+	document.getElementById('target').focus();
 }
 
 // ------------------------------
@@ -74,3 +78,30 @@ const pasteText = (callback) => {
 
 // ------------------------------
 
+function init() {
+	//window.open( 'https://www.sejuku.net/blog/' );
+	window.onmousedown = handleMouseDown;
+}
+
+function handleMouseDown(event) {
+	event = event || window.event; // IE対応
+	target = document.getElementsByName("Googleaaa");
+	if (event.button == 0) {
+		//target.innerHTML = "左ボタンが押されました。";
+		window.location.replace( 'http://www.google.co.jp/' );
+	}
+	else if (event.button == 1) {
+		//target.innerHTML = "中ボタンが押されました。";
+		window.open( 'http://www.google.co.jp/' );
+	}
+	else if (event.button == 2) {
+		target.innerHTML = "右ボタンが押されました。";
+	}
+}
+
+function kakunin(){
+  ret = prompt("ホームページのURLを入力", "http://www.google.co.jp/");
+  if (ret != null){
+    window.open(ret, "new");
+  }
+}
