@@ -36,13 +36,13 @@
 </head>
 
 	<body>
-		<form method="post" action="output">
+		<form method="post" action="output" target="_blank">
 			<div class="form-group">
 				<div class="row">
 					<div class="col-12 col-sm-10 col-md-8 col-lg-7">
 						<div class="search_container">
 							{% csrf_token %}
-							<input type="text" id="target" value="" autofocus placeholder=" EnterでGoogle検索" required name="srch_str">
+							<input type="text" id="target" value="" autofocus placeholder=" EnterでGoogle検索" name="srch_str">
 							<!--
 							<input type="reset" value="&#xf057" class="far">
 							-->
@@ -86,11 +86,21 @@
 						</div>
 					</div>
 
+					<div class="col-auto">
+						<div class="text-posi">
+							<div class="dropshadow">
+								<input type="image" name="URLを直接開く" src="{% static 'img/URLを直接開く.png' %}" width="90"><br>
+							</div>
+							<p>URLを直接開く</p>
+						</div>
+					</div>
+
 				</div>
 			</p>
 
 
 			<p><strong>ショッピング</strong>
+				<p>検索文字空欄でカートページを開きます(要ログイン)</p>
 				<div class="form-row align-items-top">
 
 					<div class="col-auto">
@@ -181,6 +191,7 @@
 
 
 			<p><strong>オークション・フリマ</strong>
+				<p>検索文字空欄でトップページを開きます</p>
 				<div class="form-row align-items-top">
 
 					<div class="col-auto">
@@ -215,6 +226,7 @@
 
 
 			<p><strong>動画サービス</strong>
+				<p>検索文字空欄でトップページを開きます</p>
 				<div class="form-row align-items-top">
 
 					<div class="col-auto">
@@ -258,6 +270,7 @@
 
 
 			<p><strong>その他</strong>
+				<p>検索文字空欄でトップページを開きます</p>
 				<div class="form-row align-items-top">
 
 					<div class="col-auto">
@@ -324,7 +337,7 @@
 									});
 							},
 							autoFocus: false,
-							delay: 100,
+							delay: 200,
 							minLength: 1,
 					});
 			});

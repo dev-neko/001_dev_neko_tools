@@ -1,9 +1,10 @@
 import os
 
 # ------------------------------
-
-# デバッグ用
-# python manage.py runserver
+"""
+デバッグ用
+python manage.py runserver
+"""
 # DEBUG = True
 # ALLOWED_HOSTS = ['*']
 # 本番環境用
