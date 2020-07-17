@@ -42,7 +42,7 @@
 					<div class="col-12 col-sm-10 col-md-8 col-lg-7">
 						<div class="search_container">
 							{% csrf_token %}
-							<input type="text" id="target" value="" autofocus placeholder=" EnterでGoogle検索" name="srch_str">
+							<input type="text" id="target" value="" autocomplete="on" autofocus placeholder=" EnterでGoogle検索" name="srch_str">
 							<!--
 							<input type="reset" value="&#xf057" class="far">
 							-->
@@ -86,6 +86,8 @@
 						</div>
 					</div>
 
+					<!--
+					改良したので不要になった
 					<div class="col-auto">
 						<div class="text-posi">
 							<div class="dropshadow">
@@ -94,6 +96,7 @@
 							<p>URLを直接開く</p>
 						</div>
 					</div>
+					-->
 
 				</div>
 			</p>
