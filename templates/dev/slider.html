@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<script  type="text/javascript" src="//code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
+	</head>
+	<body>
+
+	<p>1</p>
+	<input type="range" value="1" min="1" max="30" step="1"
+				 oninput="document.getElementById('output1').value=this.value">
+	<output id="output1">1</output>
+
+	<p>2</p>
+	<input type="range" id="b_range" min="1" max="30" value="1"
+				 oninput="document.getElementById('msg_b').innerHTML = b_range.value;"
+				 style="padding:0;width:350px;margin: 0 0px 0 0px;" />
+	<span id="msg_b">1</span><br/><br/>
+
+	<form id="surprise_fm" action="slider/surprise/" method="post">
+		{% csrf_token %}
+		<input id="your_txt" type="text" name="your_txt" value="aaa">
+		<input id="surprise_btn" type="submit">
+	</form>
+
+	<p><span id="id_div_ajax_response">
+		AJAX RESPONSE
+	</span></p>
+
+		<script>
+		$("form").submit( function(event) {
+				event.preventDefault();
+						$.ajax({
+								'url':form.prop("action"),
+								'type':form.prop("method"),
+								'data':{
+										'your_txt':$('#your_txt').val(),
+								},
+								'dataType':'json',
+								success:function(response){
+										alert("response");
+										$("#id_div_ajax_response").text(response);
+								},
+						});
+						return false;
+				});
+		});
+		</script>
+
+	</body>
+
+</html>

@@ -2,9 +2,9 @@ import os
 
 # ------------------------------
 """
-デバッグ用
 python manage.py runserver
 """
+# デバッグ用
 # DEBUG = True
 # ALLOWED_HOSTS = ['*']
 # 本番環境用
@@ -116,4 +116,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
  os.path.join(BASE_DIR, 'static'),
 )
+# デバッグの時はコメントアウトしないと表示されない
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
