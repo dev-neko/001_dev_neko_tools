@@ -5,11 +5,11 @@ import os
 python manage.py runserver
 """
 # デバッグ用
-# DEBUG = True
-# ALLOWED_HOSTS = ['*']
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 # 本番環境用
-DEBUG = False
-ALLOWED_HOSTS = ['buta-neko-tools.com']
+# DEBUG = False
+# ALLOWED_HOSTS = ['buta-neko-tools.com']
 
 # ------------------------------
 
