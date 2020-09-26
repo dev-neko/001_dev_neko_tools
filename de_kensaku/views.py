@@ -117,7 +117,19 @@ def output(request):
 			'',
 			'https://www.dailymotion.com',
 		 	''],
+		#	チャット
+		['AmazonChat',
+			'https://www.amazon.co.jp/message-us?origRef=de_poc&muClientName=magus&ref_=de_poc',
+			'',
+			'',
+			''],
 		#	その他
+		# 検索欄空欄でマイプレイス
+		['Googleマップ',
+			'https://www.google.co.jp/maps/place/',
+			'euc-jp',
+			'https://www.google.co.jp/maps/@/data=!4m2!10m1!1e2',
+		 	''],
 		['Yahoo!知恵袋',
 			'https://chiebukuro.yahoo.co.jp/search/?p=',
 			'',
@@ -133,7 +145,7 @@ def output(request):
 			'',
 			'https://twitter.com',
 		 	''],
-		['fo_srch_urlcebook',
+		['Facebook',
 			'https://www.fo_srch_urlcebook.com/search/top/?q=',
 			'',
 			'https://www.fo_srch_urlcebook.com',
@@ -164,8 +176,11 @@ def output(request):
 				# どれかに一致したときの処理
 				# とりあえずif、elifの後はbreakで処理しないようにした
 				else:
+					# チャット系のアイコンをクリックした場合は検索欄が空欄でも何か入っていてもチャットのページを開く
+					if "Chat" in fo_srch_url[0]:
+						open_url = fo_srch_url[1]
 					# 検索欄に何も入力されていなかった場合はカートか購入履歴表示
-					if input_data == "":
+					elif input_data == "":
 						if int(request.POST[ fo_srch_url[0] + ".x" ]) < 45:
 							open_url = fo_srch_url[3]
 						else:

@@ -17,3 +17,16 @@ def for_ajax(request):    # AJAXに答える関数
 		return HttpResponse(response)
 	else:
 		raise Http404  # GETリクエストを404扱いにしているが、実際は別にしなくてもいいかも
+
+def kihu_parts_gen(request):
+	template=loader.get_template("dev/kihu_parts_gen.html")
+	return HttpResponse(template.render({},request))
+
+def modal01(request):
+	template=loader.get_template("dev/modal01.html")
+	return HttpResponse(template.render({},request))
+
+def tame(request):
+	template=loader.get_template("dev/tame.html")
+	return HttpResponse(template.render({},request))
+

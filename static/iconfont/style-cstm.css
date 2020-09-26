@@ -1,0 +1,20 @@
+/* アイコンの大きさを指定 */
+.fb-2x {
+	font-size: 2em;
+}
+.fb-3x {
+	font-size: 3em;
+}
+.fb-4x {
+	font-size: 4em;
+}
+.fb-5x {
+	font-size: 5em;
+}
+
+
+/* アイコンと文字を白に指定 */
+.kihuicon-text-color {
+	color: white;
+}
+

@@ -1,0 +1,166 @@
+{% load static %}
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+	<script type="text/javascript" language="javascript">
+		function onButtonClick() {
+			target = document.getElementById("copyTarget");
+			moji_1 = document.forms.id_form1.id_textBox1.value;
+			moji_2 = document.forms.id_form1.id_textBox2.value;
+			moji_3 = document.forms.id_form1.id_textBox3.value;
+			moji_4 = document.forms.id_form1.id_textBox4.value;
+			target.innerText = moji_1 +","+ moji_2 +","+ moji_3 +","+ moji_4;
+		}
+		function copyToClipboard() {
+			// コピー対象をJavaScript上で変数として定義する
+			var copyTarget = document.getElementById("copyTarget");
+			// コピー対象のテキストを選択する
+			copyTarget.select();
+			// 選択しているテキストをクリップボードにコピーする
+			document.execCommand("Copy");
+			// コピーをお知らせする
+			alert("コピーできました！ : " + copyTarget.value);
+		}
+		// ------------------------------
+		// モーダルウィンドウ
+		$(function(){
+			var winScrollTop;
+			$('.js-modal-open').each(function(){
+					$(this).on('click',function(){
+							//スクロール位置を取得
+							winScrollTop = $(window).scrollTop();
+							var target = $(this).data('target');
+							var modal = document.getElementById(target);
+							$(modal).fadeIn();
+							return false;
+					});
+			});
+			$('.js-modal-close').on('click',function(){
+					$('.js-modal').fadeOut();
+					$('body,html').stop().animate({scrollTop:winScrollTop}, 100);
+					return false;
+			});
+		});
+		// ------------------------------
+	</script>
+	<style>
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			overflow : auto; //状況に応じて縦スクロールバーが出現
+		}
+		.content{
+			margin: 0 auto;
+			padding: 40px;
+		}
+		.box{
+			background: #eee;
+			height: 200px;
+			margin-bottom: 100px;
+		}
+		.modal{
+			display: none;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			width: 100%;
+		}
+		.modal__bg{
+			background: rgba(0,0,0,0.8);
+			height: 100vh;
+			position: absolute;
+			width: 100%;
+		}
+		.modal__content{
+			background: #fff;
+			left: 50%;
+			padding: 40px;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			width: 60%;
+			height : 80%; //お好みの高さで固定
+		}
+		/*アイコンをクリックしたときの青枠を消す*/
+		*:focus {
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<form name="form1" id="id_form1" action="">
+		<p>pringのID<br>
+			<input name="textBox1" id="id_textBox1" type="text" value="aaa" />
+		</p>
+		<p>kyashのID<br>
+			<input name="textBox1" id="id_textBox2" type="text" value="bbb" />
+		</p>
+		<p>Amazon欲しい物リストのURL<br>
+			<input name="textBox1" id="id_textBox3" type="text" value="ccc" />
+		</p>
+		<p>Amazonギフト券を受け取るメールアドレス<br>
+			<input name="textBox1" id="id_textBox4" type="text" value="ddd" />
+		</p>
+		<input type="button" value="生成" onclick="onButtonClick();" />
+	</form>
+	<p>ここのHTMLをブログに張り付けてください。<br>
+		<textarea name="kanso" rows="4" cols="40" id="copyTarget"></textarea><br>
+		<button onclick="copyToClipboard()">コピーする</button>
+	</p>
+
+	<div class="content">
+		<input type="image" class="js-modal-open" data-target="modal01" src="{% static 'img/aid/Kyash.png' %}" width="90">
+		<input type="image" class="js-modal-open" data-target="modal02" src="{% static 'img/aid/pring.png' %}" width="90">
+		<input type="image" class="js-modal-open" data-target="modal03" src="{% static 'img/aid/Amazonギフト券.png' %}" width="90">
+		<input type="image" class="js-modal-open" data-target="modal04" src="{% static 'img/aid/pring.png' %}" width="90"><br>
+	</div>
+	<div id="modal01" class="modal js-modal">
+		<div class="modal__bg js-modal-close"></div>
+		<div class="modal__content">
+			<p>
+				Kyashで寄付します。<br><br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+				～さんのIDは～です。<br>
+			</p>
+			<a class="js-modal-close" href="">閉じる</a>
+		</div><!--modal__inner-->
+	</div><!--modal-->
+	<div id="modal02" class="modal js-modal">
+		<div class="modal__bg js-modal-close"></div>
+		<div class="modal__content">
+			<p>
+				pringで寄付します。<br>
+				～さんのIDは～です。<br>
+			</p>
+			<a class="js-modal-close" href="">閉じる</a>
+		</div><!--modal__inner-->
+	</div><!--modal-->
+
+
+
+
+</body>
+</html>

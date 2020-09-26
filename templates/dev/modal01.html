@@ -1,0 +1,334 @@
+{% load static %}
+<!-- アイコンフォント デフォルト設定 -->
+<link href="{% static 'iconfont/kihuicon-v1.1/style.css' %}" rel="stylesheet">
+<!-- アイコンフォント カスタマイズ用 -->
+<link href="{% static 'iconfont/style-cstm.css' %}" rel="stylesheet">
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<!-- viewport meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<!-- cb-materialbtn.css ブトスラのボタンの色を変えるライブラリ -->
+		<link rel="stylesheet" href="https://cdn.rawgit.com/maechabin/bootstrap-material-button-color/master/dist/cb-materialbtn.0.5.5.min.css">
+		<!-- clipboard.js クリップボードにコピーするライブラリ -->
+		<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+		<style>
+}		</style>
+	</head>
+	<body>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 支援先ボタン -->
+
+	<!-- コピペ用 -->
+	<!--
+	<button type="button" class="btn btn-lightblue600_rsd" data-toggle="modal" data-target="#支援方法" title="支援方法">
+		<span class="kihuicon-text-color">
+			<span class="d-flex align-items-center">
+				<span class='kihuicon-支援方法 fb-2x'></span>
+			</span>
+		</span>
+	</button>
+	-->
+
+	<button type="button" class="btn btn-lightblue600_rsd" data-toggle="modal" data-target="#Kyash" title="Kyash">
+		<span class="kihuicon-text-color">
+			<span class="d-flex align-items-center">
+				<span class='kihuicon-Kyash fb-2x'></span>
+			</span>
+		</span>
+	</button>
+
+	<button type="button" class="btn btn-deeporange300_rsd" data-toggle="modal" data-target="#pring" title="pring">
+		<span class="kihuicon-text-color">
+			<span class="d-flex align-items-center">
+				<span class='kihuicon-pring fb-2x'></span>
+			</span>
+		</span>
+	</button>
+
+	<button type="button" class="btn btn-teal300_rsd" data-toggle="modal" data-target="#Amazon_wish" title="Amazon欲しい物リスト">
+		<span class="kihuicon-text-color">
+			<span class="d-flex align-items-center">
+				<span class='kihuicon-Amazon_wish fb-2x'></span>
+				<!--
+				<span class="text-left">&nbsp;Amazon<br>&nbsp;欲しい物リスト</span>
+				-->
+			</span>
+		</span>
+	</button>
+
+	<button type="button" class="btn btn-yellow600_rsd" data-toggle="modal" data-target="#Amazon_gift" title="Amazonギフト券">
+		<span class="kihuicon-text-color">
+			<span class="d-flex align-items-center">
+				<span class='kihuicon-Amazon_gift fb-2x'></span>
+			</span>
+		</span>
+	</button>
+
+	<button type="button" class="btn btn-red500_rsd" data-toggle="modal" data-target="#PayPay" title="PayPay">
+		<span class="kihuicon-text-color">
+			<span class="d-flex align-items-center">
+				<span class='kihuicon-PayPay fb-2x'></span>
+			</span>
+		</span>
+	</button>
+
+	<button type="button" class="btn btn-red500_rsd" data-toggle="modal" data-target="#PayPay" title="PayPay">
+		<span class="kihuicon-text-color">
+			<span class="d-flex align-items-center">
+				<span class='kihuicon-PayPay fb-2x'></span>
+			</span>
+		</span>
+	</button>
+
+
+
+
+
+
+
+
+
+
+<!-- モーダル -->
+
+		<!-- コピペ用 -->
+		<!--
+		<div class="modal fade" id="支援方法" tabindex="-1"
+				 role="dialog" aria-labelledby="支援方法_label1" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="支援方法_label2">～で支援する</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+						<div class="modal-body">
+							本文
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		-->
+
+<div class="modal fade" id="Kyash" tabindex="-1"
+		 role="dialog" aria-labelledby="Kyash_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="Kyash_label2">Kyashで支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>
+					ID：<input id="kyashid" type="text" size="10" value="butaneko" readonly>
+					<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#kyashid">コピーする</button>
+				</p>
+				<p><div align="center">
+					<img src="{% static 'img/aid/Kyash_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+				</div></p>
+				<p>
+					IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援お願いいたします！
+				</p>
+				<p>詳しいご支援方法は
+					<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+					をご参照ください。
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="pring" tabindex="-1"
+		 role="dialog" aria-labelledby="pring_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="pring_label2">pringで支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>
+					ID：<input id="pringid" type="text" size="10" value="butaneko" readonly>
+					<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#pringid">コピーする</button>
+				</p>
+				<p><div align="center">
+					<img src="{% static 'img/aid/pring_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+				</div></p>
+				<p>
+					IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援お願いいたします！
+				</p>
+				<p>詳しいご支援方法は
+					<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+					をご参照ください。
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="Amazon_wish" tabindex="-1"
+		 role="dialog" aria-labelledby="Amazon_wish_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="Amazon_wish_label2">Amazonほしい物リストで支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p><a href="https://www.amazon.jp/hz/wishlist/ls/3PPAPB0SPLNTS?ref_=wl_share" target="_blank"><u>豚猫のほしいものリスト</u></a>
+					からご支援お願いいたします！
+				</p><div align="center">
+				<img src="{% static 'img/aid/Amazon_giftcheck.png' %}" alt="" class="figure-img img-fluid rounded shadow-sm">
+				</div><p>
+					レジに進む際に
+					<font color="red"><b>「ギフトの設定」にチェックが入っている</b></font>
+					と名前と住所が印刷されたメッセージカードが同梱されてしまうためご注意ください。
+				</p>
+				<p>
+					クレジットカードでお支払いを行った場合、プレゼントと一緒に
+					名前と住所が記載された明細表が同封されてしまう可能性があるため、
+					匿名性を保ちたい場合は
+					<font color="red"><b>全額Amazonギフト券でのお支払い</b></font>
+					がオススメです。
+				</p>
+				<p><font color="purple"><b>
+						頂いたものはブログでレビュー記事にして紹介させていただきます！
+				</b></font></p>
+				<p>詳しいご支援方法は
+					<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+					をご参照ください。
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="Amazon_gift" tabindex="-1"
+		 role="dialog" aria-labelledby="Amazon_gift_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="Amazon_gift_label2">Amazonギフト券で支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p><a href="https://www.amazon.co.jp/dp/B004N3APGO" target="_blank"><u>Amazonギフト券(Eメールタイプ)</u></a>
+					からご支援お願いいたします！
+				</p><div align="center">
+				<img src="{% static 'img/aid/Amazon_nick.png' %}" class="figure-img img-fluid rounded shadow-sm">
+				</div><p>
+					「アカウントサービス」→「ログインとセキュリティ」で設定されているお名前が
+					私がAmazonギフト券を登録した後の「ギフト券の贈り主に、お礼のメールを送付」の画面で
+					表示されてしまうため、
+					<font color="red"><b>予めニックネームなどに変更</b></font>
+					しておく事をお勧めいたします。
+				</p>
+				<p>詳しいご支援方法は
+					<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+					をご参照ください。
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="PayPay" tabindex="-1"
+		 role="dialog" aria-labelledby="PayPay_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="PayPay_label2">PayPayで支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>
+					ID：<input id="PayPayid" type="text" size="10" value="未登録" readonly>
+					<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#PayPayid">コピーする</button>
+				</p>
+				<p><div align="center">
+					<img src="{% static 'img/aid/PayPay_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+				</div></p>
+				<p>
+					IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援お願いいたします！
+				</p>
+				<p>詳しいご支援方法は
+					<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+					をご参照ください。
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+		<!-- jQuery、Popper.js、Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script>
+			<!-- ブトスラのツールチップ -->
+			$('[data-toggle="tooltip"]').tooltip();
+			<!-- クリップボードにコピーするJS なぜかhedderに置いても反応しなかった -->
+			new ClipboardJS('.cbjs_tn');
+			<!-- ブトスラのポッパー -->
+			(function() {
+				window.addEventListener("load", function () {
+					$('[data-toggle="popover"]').popover();
+				});
+			})();
+		</script>
+	</body>
+</html>
+
