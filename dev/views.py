@@ -1,6 +1,5 @@
 from django.http import HttpResponse, Http404
 from django.template import loader
-from jinja2 import Environment, FileSystemLoader
 import requests, bs4
 import datetime
 
