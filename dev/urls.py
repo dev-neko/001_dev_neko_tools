@@ -7,4 +7,6 @@ urlpatterns = [
 	path('kihu_parts_gen/', views.kihu_parts_gen, name='kihu_parts_gen'),
 	path('modal01/', views.modal01),
 	path('tame/',views.tame),
+	path('ipo_01/',views.ipo_01),
+	path('ysp_api_01/',views.ysp_api_01),
 ]
