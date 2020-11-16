@@ -2,9 +2,7 @@
 import urllib.parse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
-from django.utils.datastructures import MultiValueDictKeyError
 from django.shortcuts import render
-from jinja2 import Environment, FileSystemLoader
 import bs4
 import requests
 
