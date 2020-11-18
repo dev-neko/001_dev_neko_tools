@@ -16,9 +16,6 @@
 			textarea {
 				width:100%;
 			}
-			.span {
-				vertical-align: middle;
-			}
 		</style>
 	</head>
 	<body>
@@ -32,16 +29,18 @@
 				{% csrf_token %}
 				<!-- 解析するURL -->
 				<p>
-					<span>ヤフオクで絞り込んだURL</span>
-					<button type="button" class="btn btn-dark rounded-circle p-0"
-									style="width:1.3rem;height:1.3rem;"
-									data-trigger="focus"
-									data-placement="right"
-									data-toggle="popover"
-									data-html="true"
-									data-content="URLには解析を行うために必要となる、表示件数(&n=)、ページ番号(&b=)、表示方法は「タイトルと画像」(&mode=2)、が含まれるようにお願い致します。">？
-					</button>
-					<textarea name="src_raw_url" rows="2" required>https://auctions.yahoo.co.jp/search/search?p=Python&va=Python&exflg=1&b=1&n=20&mode=2</textarea>
+					<span class="d-flex align-items-center">
+						<span>ヤフオクで絞り込んだURL</span>
+						<button type="button" class="btn btn-dark rounded-circle p-0"
+										style="width:1.3rem;height:1.3rem;position:relative;left:3px;"
+										data-trigger="focus"
+										data-placement="right"
+										data-toggle="popover"
+										data-html="true"
+										data-content="URLには解析を行うために必要となる、表示件数(&n=)、ページ番号(&b=)、表示方法は「タイトルと画像」(&mode=2)、が含まれるようにお願い致します。<br>終了する曜日と時間帯についてはWebアプリにて指定可能なためURLには含めないようにお願い致します。">？
+						</button>
+					</span>
+					<textarea name="src_raw_url" rows="2" required></textarea>
 				</p>
 				<!-- 終了する曜日を指定 -->
 				<p>
@@ -88,16 +87,17 @@
 				</p>
 				<!-- 解析するページ番号 -->
 				<p>
-					<span>解析するページ</span>
-					<button type="button" class="btn btn-dark rounded-circle p-0"
-									style="width:1.3rem;height:1.3rem;"
-									data-trigger="focus"
-									data-placement="right"
-									data-toggle="popover"
-									data-html="true"
-									data-content="ヤフオクで絞り込んだ結果のページからWebアプリで解析するページを指定します。<br>">？
-					</button>
-					<br>
+					<span class="d-flex align-items-center">
+						<span>解析するページ</span>
+						<button type="button" class="btn btn-dark rounded-circle p-0"
+										style="width:1.3rem;height:1.3rem;position:relative;left:3px;"
+										data-trigger="focus"
+										data-placement="right"
+										data-toggle="popover"
+										data-html="true"
+										data-content="ヤフオクで絞り込んだ結果のページからWebアプリで解析するページを指定します。<br>">？
+						</button>
+					</span>
 					<select name="analysis_pages">
 						<option value="1" selected>1ページ目</option>
 						<option value="2">2ページ目</option>"
@@ -139,31 +139,33 @@
 				</p>-->
 				<!-- 自動延長無しフィルタ -->
 				<p>
-					<span>自動延長無しフィルタ</span>
-					<button type="button" class="btn btn-dark rounded-circle p-0"
-									style="width:1.3rem;height:1.3rem;"
-									data-trigger="focus"
-									data-placement="right"
-									data-toggle="popover"
-									data-html="true"
-									data-content="ONの状態では、自動延長が設定できない定額のオークションも非表示になるためご注意ください。<br>">？
-					</button>
-					<br>
+					<span class="d-flex align-items-center">
+						<span>自動延長無しフィルタ</span>
+						<button type="button" class="btn btn-dark rounded-circle p-0"
+										style="width:1.3rem;height:1.3rem;position:relative;left:3px;"
+										data-trigger="focus"
+										data-placement="right"
+										data-toggle="popover"
+										data-html="true"
+										data-content="ONの状態では、自動延長が設定できない定額のオークションも非表示になるためご注意ください。<br>">？
+						</button>
+					</span>
 					<label><input type="radio" name="radio_auto_ext" value="OFF" checked="checked"> OFF</label>
 					<label><input type="radio" name="radio_auto_ext" value="ON"> ON</label>
 				</p>
 				<!-- 評価レートフィルタ -->
 				<p>
-					<span>評価レートフィルタ</span>
-					<button type="button" class="btn btn-dark rounded-circle p-0"
-									style="width:1.3rem;height:1.3rem;"
-									data-trigger="focus"
-									data-placement="right"
-									data-toggle="popover"
-									data-html="true"
-									data-content="OFFにした状態であれば、テキストボックスに数値が入力された状態でも絞り込みは行われません。<br>">？
-					</button>
-					<br>
+					<span class="d-flex align-items-center">
+						<span>評価レートフィルタ</span>
+						<button type="button" class="btn btn-dark rounded-circle p-0"
+										style="width:1.3rem;height:1.3rem;position:relative;left:3px;"
+										data-trigger="focus"
+										data-placement="right"
+										data-toggle="popover"
+										data-html="true"
+										data-content="OFFにした状態であれば、テキストボックスに数値が入力された状態でも絞り込みは行われません。<br>">？
+						</button>
+					</span>
 					<label><input type="radio" name="radio_rate" value="OFF" checked="checked"> OFF</label>
 					<label><input type="radio" name="radio_rate" value="ON"> ON</label><br>
 					<input type="text" name="radio_rate" id="inputrate" disabled="disabled" size="1" value="99.5">
@@ -171,20 +173,22 @@
 				</p>
 				<!-- 出品者フィルタ -->
 				<p>
-					<span>出品者IDでの除外フィルタ</span>
-					<button type="button" class="btn btn-dark rounded-circle p-0"
-									style="width:1.3rem;height:1.3rem;"
-									data-trigger="focus"
-									data-placement="right"
-									data-toggle="popover"
-									data-html="true"
-									data-content="出品者IDを複数指定する場合はカンマ(,)区切りで入力してください。<br>OFFにした状態であれば、テキストボックスに入力された状態でも絞り込みは行われません。">？
-					</button>
-					<br>
+					<span class="d-flex align-items-center">
+						<span>出品者IDでの除外フィルタ</span>
+						<button type="button" class="btn btn-dark rounded-circle p-0"
+										style="width:1.3rem;height:1.3rem;position:relative;left:3px;"
+										data-trigger="focus"
+										data-placement="right"
+										data-toggle="popover"
+										data-html="true"
+										data-content="出品者IDを複数指定する場合はカンマ(,)区切りで入力してください。<br>OFFにした状態であれば、テキストボックスに入力された状態でも絞り込みは行われません。">？
+						</button>
+					</span>
 					<label><input type="radio" name="exclude_id" value="OFF" checked="checked"> OFF</label>
 					<label><input type="radio" name="exclude_id" value="ON"> ON</label><br>
 					<textarea name="exclude_id" id="input_exclude_id" disabled="disabled" rows="2"></textarea>
 				</p>
+
 				<p><input type="submit"></p>
 			</form>
 		</div>
