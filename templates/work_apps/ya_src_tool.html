@@ -19,9 +19,9 @@
 		<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 		-->
 		{% csrf_token %}
-		<p><input type="search" name="va" width=30% value="bbb" placeholder="すべて含む"></p>
-		<p><input type="search" name="vo" placeholder="少なくとも一つを含む"></p>
-		<p><input type="search" name="ve" placeholder="含めない"></p>
+		<p><input type="search" name="va" width=30% value="" placeholder="すべて含む"></p>
+		<p><input type="search" name="vo" value="あ で す ム レ ま" placeholder="少なくとも一つを含む"></p>
+		<p><input type="search" name="ve" value="外観良品 外観美品 訳あり品 digital af ef-s usm tamron タムロン sony tokina sigma シグマ hsm stm ミラーレス sel ef tamron タムロン ULTRASONIC ウルトラソニック asph O.I.S oss" placeholder="含めない"></p>
 		<!-- 検索条件 -->
 		<p>
 			<label><input type="radio" name="radio_ngram" value="0" checked="checked"> タイトル</label>

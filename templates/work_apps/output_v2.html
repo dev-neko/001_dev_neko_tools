@@ -3,24 +3,23 @@
 	</head>
 	<body>
 	<!--
-	<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-	{% csrf_token %}
-	-->
-
-	<!--
 	元の検索ページの総数/解析したページ
 	元の検索ページのURL
+	検索結果件数
 	-->
 		<p>
-			<a href="{{ sub_data.検索URL }}" target = "_blank">{{ sub_data.検索URL }}</a></br>
+			<a href="{{ sub_data.検索URL }}" target = "_blank">条件を付加したURL</a><br>
+		</p>
+		<p>
+			条件にマッチした件数：{{ auc_data|length }} 件<br><br>
 		</p>
 
 		<p>
 			{% for fo_auc_data in auc_data %}
 				<a href="{{ fo_auc_data.オクURL }}" target="_blank">
-					<img alt="{{ fo_auc_data.オク名 }}" src="{{ fo_auc_data.画像URL }}" loading="lazy" height="150"/></br>
+					<img alt="{{ fo_auc_data.オク名 }}" src="{{ fo_auc_data.画像URL }}" loading="lazy" height="150"/><br>
 				</a>
-				<a href="{{ fo_auc_data.オクURL }}" target = "_blank">{{ fo_auc_data.オク名 }}</a></br>
+				<a href="{{ fo_auc_data.オクURL }}" target = "_blank">{{ fo_auc_data.オク名 }}</a><br>
 				出品者ID：{{ fo_auc_data.出品者ID }}<br>
 				出品者の評価：{{ fo_auc_data.評価レート }}<br>
 				現在価格：{{ fo_auc_data.現在価格 }}円<br>
