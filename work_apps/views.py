@@ -186,7 +186,7 @@ def ya_src_tool_v2(request):
 
 def output_v2(request):
 	# テンプレへ渡す辞書
-	django_template_data=[]
+	auc_data_dict=[]
 	# 何曜日の何時までに終了か指定
 	post_e_wday=request.POST["select_e_wday"]
 	post_e_time=request.POST["select_e_time"]
@@ -205,6 +205,7 @@ def output_v2(request):
 	post_auto_ext=request.POST["radio_auto_ext"]
 	post_rate=request.POST["radio_rate"]
 	post_exclude_id=request.POST["exclude_id"].split(',')
+	post_exclude_titledesc=request.POST["exclude_titledesc"].split(' ')
 
 	# URLからソースを取得
 	src_url_parser=requests.get(src_url)
@@ -245,85 +246,83 @@ def output_v2(request):
 			auc_time=auc_time_dayhormin+auc_time_detail.text
 		else:
 			auc_time=auc_time_dayhormin
+
+		# オークションの詳細ページを解析
+		auc_url_parser=requests.get(auc_url)
+		bs4obj_auc_url=bs4.BeautifulSoup(auc_url_parser.text,'html.parser')
 		# 現在価格と即決価格が同じならば定額、異なればオークションと判断して
 		# オークションの場合だけ自動延長の有無を確認
-		# URLからソースを取得
+		# 自動延長の有無 auc_auto_ext
 		if auc_price!=auc_pricewin:
-			src_url_auto_ext=auc_url
-			src_url_parser=requests.get(src_url_auto_ext)
-			bs4obj2=bs4.BeautifulSoup(src_url_parser.text,'html.parser')
-			# 自動延長の有無
-			auc_auto_ext\
-			=bs4obj2.find("ul",attrs={'class':'ProductDetail__items ProductDetail__items--primary'}).find_all("dd",attrs=
+				auc_auto_ext=bs4obj_auc_url.find("ul",attrs={'class':'ProductDetail__items ProductDetail__items--primary'}).find_all("dd",attrs=
 				{'class':'ProductDetail__description'})[3].text.replace("：","")
 		else:
 			auc_auto_ext="定額のオークション"
-
-		# print("--------------全体----------------")
-		# print(auc_auto_ext)
-		# print(auc_rating)
-		# print(auc_seller)
-		# print("--------------フィルタ----------------")
+		# 商品説明 auc_desc
+		auc_desc=bs4obj_auc_url.find("div",attrs={'class':'ProductExplanation__commentArea'}).text
+		# タイトルと商品説明で除外キーワードが部分一致しているか判定 auc_title_desc
+		auc_title_desc="なし"
+		for fo_post_exclude_titledesc in post_exclude_titledesc:
+			if fo_post_exclude_titledesc in (auc_title+auc_desc):
+				auc_title_desc="あり"
+				break
 
 		# ヤフオク標準検索機能以外の条件でスクレイピングしてフィルタ
-		if ((post_auto_ext!="OFF") and (post_rate!="OFF") and (post_exclude_id[0]!="OFF")):
-			# print("すべてON")
-			if ((auc_auto_ext=="なし") and (float(auc_rating.replace("%",""))>float(post_rate)) and (
-				auc_seller not in post_exclude_id)):
-				# print(auc_title)
-				# print(auc_url)
-				django_template_data.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
-		elif ((post_auto_ext!="OFF") and (post_rate!="OFF")):
-			# print("abがON")
-			if ((auc_auto_ext=="なし") and (float(auc_rating.replace("%",""))>float(post_rate))):
-				# print(auc_title)
-				# print(auc_url)
-				django_template_data.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
-		elif ((post_auto_ext!="OFF") and (post_exclude_id[0]!="OFF")):
-			# print("acがON")
-			if ((auc_auto_ext=="なし") (auc_seller not in post_exclude_id)):
-				# print(auc_title)
-				# print(auc_url)
-				django_template_data.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
-		elif ((post_rate!="OFF") and (post_exclude_id[0]!="OFF")):
-			# print("bcがON")
-			if ((float(auc_rating.replace("%",""))>float(post_rate)) and (auc_seller not in post_exclude_id)):
-				# print(auc_title)
-				# print(auc_url)
-				django_template_data.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
-		elif (post_auto_ext!="OFF"):
-			# print("aがON")
+		filter_flags=[]
+		filter_judge=[]
+		filter_flags.append("1") if post_auto_ext!="OFF" else filter_flags.append("0")
+		filter_flags.append("1") if post_rate!="OFF" else filter_flags.append("0")
+		filter_flags.append("1") if post_exclude_id[0]!="OFF" else filter_flags.append("0")
+		filter_flags.append("1") if post_exclude_titledesc[0]!="OFF" else filter_flags.append("0")
+		# 自動延長のフィルタ
+		if filter_flags[0]=="1":
 			if (auc_auto_ext=="なし"):
-				# print(auc_title)
-				# print(auc_url)
-				django_template_data.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
-		elif (post_rate!="OFF"):
-			# print("bがON")
-			if (float(auc_rating.replace("%",""))>float(post_rate)):
-				# print(auc_title)
-				# print(auc_url)
-				django_template_data.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
-		elif (post_exclude_id[0]!="OFF"):
-			# print("cがON")
-			if (auc_seller not in post_exclude_id):
-				# print(auc_title)
-				# print(auc_url)
-				django_template_data.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
+				filter_judge.append("OK")
+			else:
+				filter_judge.append("NG")
 		else:
-			# print("すべてOFF")
-			# print(auc_title)
-			# print(auc_url)
-			django_template_data.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
+			filter_judge.append("OK")
+		# 評価レートフィルタ
+		if filter_flags[1]=="1":
+			if (float(auc_rating.replace("%",""))>float(post_rate)):
+				filter_judge.append("OK")
+			else:
+				filter_judge.append("NG")
+		else:
+			filter_judge.append("OK")
+		# 出品者IDフィルタ
+		if filter_flags[2]=="1":
+			if (auc_seller not in post_exclude_id):
+				filter_judge.append("OK")
+			else:
+				filter_judge.append("NG")
+		else:
+			filter_judge.append("OK")
+		# タイトルと商品説明で部分一致除外フィルタ
+		if filter_flags[3]=="1":
+			if (auc_title_desc=="なし"):
+				filter_judge.append("OK")
+			else:
+				filter_judge.append("NG")
+		else:
+			filter_judge.append("OK")
 
-	# print("--------------終了----------------")
+		print(filter_flags)
+		print(filter_judge)
+		print(auc_url)
 
-	# 検証用データ
-	django_template_data_sub={'検索URL':src_url,
-														}
-	# オークションデータ
-	django_template_data={'auc_data':django_template_data,
-												'sub_data':django_template_data_sub,
+		# filter_judgeにNGが含まれていなければappendする
+		if "NG" not in filter_judge:
+			auc_data_dict.append({'画像URL':auc_imgurl,'オク名':auc_title,'オクURL':auc_url,'出品者ID':auc_seller,'評価レート':auc_rating,'現在価格':auc_price,'即決価格':auc_pricewin,'入札数':auc_bid,'残り時間':auc_time,'自動延長':auc_auto_ext,})
+
+
+	# サブの1次元辞書データ
+	auc_data_sub_dict={'検索URL':src_url,}
+	# Djangoテンプレートへ渡すデータ
+	django_template_data={'auc_data':auc_data_dict,
+												'sub_data':auc_data_sub_dict,
 												}
+	# print(django_template_data)
 
 	template=loader.get_template('work_apps/output_v2.html')
 	return HttpResponse(template.render(django_template_data))
