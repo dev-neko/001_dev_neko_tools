@@ -15,8 +15,7 @@
 				<a href="{{ sub_data.検索URL }}" target = "_blank">条件を付加したURL</a>
 			</p>
 			<p>
-				条件にマッチした件数：{{ auc_data|length }} 件<br><br>
-			</p>
+				条件にマッチした件数：{{ auc_data|length }} 件<br><br>			</p>
 			<p>
 				{% for fo_auc_data in auc_data %}
 					<a href="{{ fo_auc_data.オクURL }}" target="_blank">
@@ -29,7 +28,11 @@
 					即決価格：{{ fo_auc_data.即決価格 }}円<br>
 					入札数：{{ fo_auc_data.入札数 }}<br>
 					残り時間：{{ fo_auc_data.残り時間 }}<br>
-					自動延長：{{ fo_auc_data.自動延長 }}<br><br>
+					{% if fo_auc_data.自動延長 == "なし" %}
+						自動延長：<span style="font-weight:bold; color:red;">{{ fo_auc_data.自動延長 }}</span><br><br>
+					{% else %}
+						自動延長：{{ fo_auc_data.自動延長 }}<br><br>
+					{% endif %}
 					<!-- アコーディオン
 					商品説明<br>{{ fo_auc_data.商品説明|safe }}<br>
 					<div class="accordion" id="accordion-id-{{ forloop.counter }}">
