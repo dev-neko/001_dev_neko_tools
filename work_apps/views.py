@@ -416,7 +416,7 @@ def ya_src_tool_v3_0(request):
 	else:
 		return HttpResponseRedirect('/work_apps/accounts/login/')
 # ログイン機能なし
-def ya_src_tool_v3_1(request):
+def ya_src_tool_v3(request):
 	# ここで初期化しないとリロードしても検索条件消えない
 	dt_read_db_data=[]
 	# フォームに入力する初期データ
@@ -463,7 +463,7 @@ def ya_src_tool_v3_1(request):
 					 }
 	return render(request, 'work_apps/ya_src_tool_v3.html', dt_data)
 # ログイン機能なし DB機能なし
-def ya_src_tool_v3(request):
+def ya_src_tool_v3_2(request):
 	# ここで初期化しないとリロードしても検索条件消えない
 	dt_read_db_data=[]
 	# フォームに入力する初期データ
