@@ -365,8 +365,8 @@ def output_v2(request):
 	return HttpResponse(template.render(django_template_data))
 
 
-
-def ya_src_tool_v3(request):
+# ログイン機能あり
+def ya_src_tool_v3_01(request):
 	if request.user.is_authenticated:
 		# ここで初期化しないとリロードしても検索条件消えない
 		dt_read_db_data=[]
@@ -415,6 +415,53 @@ def ya_src_tool_v3(request):
 		return render(request, 'work_apps/ya_src_tool_v3.html', dt_data)
 	else:
 		return HttpResponseRedirect('/work_apps/accounts/login/')
+# ログイン機能なし
+def ya_src_tool_v3(request):
+	# ここで初期化しないとリロードしても検索条件消えない
+	dt_read_db_data=[]
+	# フォームに入力する初期データ
+	dt_exists_db_data={'exists_db_data':SearchQueryModel.objects.all()}
+	dt_wday_data={'wday_data':{"0":"日曜日","1":"月曜日","2":"火曜日","3":"水曜日","4":"木曜日","5":"金曜日","6":"土曜日"}}
+	dt_time_data={'time_data':{str(x):str(x)+"時" for x in range(24)}}
+	dt_analysis_pages_data={'analysis_pages_data':{str(x):str(x)+"ページ目" for x in range(1,31)}}
+	# print(db_id)
+	# 検索条件保存ボタンか検索条件呼び出しボタンが押されたときの処理
+	# これを付けないとリロードしたときにも保存処理が行われる
+	if request.method=='POST':
+		# ボタンを押したときnameでボタンを判定
+		if request.POST["db_action_btn"]=="save":
+			# idを指定しないと最後に追加される
+			SearchQueryModel.objects.create(
+				md_query_name=request.POST["query_name"],
+				md_radio_url=request.POST["radio_url"],
+				md_src_url=request.POST["src_raw_url"],
+				md_seller_url=request.POST["src_seller_url"],
+				md_e_wday=request.POST["select_e_wday"],
+				md_e_time=request.POST["select_e_time"],
+				md_analysis_pages=request.POST["analysis_pages"],
+				md_auto_ext=request.POST["radio_auto_ext"],
+				md_rate_radio=request.POST["radio_rate"],
+				md_rate=request.POST["rate"],
+				md_exclude_id_radio=request.POST["radio_exclude_id"],
+				md_exclude_id=request.POST["exclude_id"],
+				md_exclude_titledesc_radio=request.POST["radio_exclude_titledesc"],
+				md_exclude_titledesc=request.POST["exclude_titledesc"],
+			)
+			# 登録後は最新のDBの内容を読み込んでDjangoテンプレートに渡す
+			dt_read_db_data={'read_db_data':SearchQueryModel.objects.order_by("id").last()}
+		elif request.POST["db_action_btn"]=="read":
+			dt_read_db_data={'read_db_data':SearchQueryModel.objects.get(id=request.POST["select_db_data"])}
+		elif request.POST["db_action_btn"]=="delete":
+			SearchQueryModel.objects.filter(id=request.POST["select_db_data"]).delete()
+		elif request.POST["db_action_btn"]=="all_delete":
+			SearchQueryModel.objects.all().delete()
+	dt_data={'dt_exists_db_data':dt_exists_db_data,
+					 'dt_read_db_data':dt_read_db_data,
+					 'dt_wday_data':dt_wday_data,
+					 'dt_time_data':dt_time_data,
+					 'dt_analysis_pages_data':dt_analysis_pages_data,
+					 }
+	return render(request, 'work_apps/ya_src_tool_v3.html', dt_data)
 
 def output_v3(request):
 	# テンプレへ渡す辞書
