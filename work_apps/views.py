@@ -365,8 +365,8 @@ def output_v2(request):
 	return HttpResponse(template.render(django_template_data))
 
 
-# ログイン機能あり
-def ya_src_tool_v3_01(request):
+# ログイン機能あり DB機能あり
+def ya_src_tool_v3_0(request):
 	if request.user.is_authenticated:
 		# ここで初期化しないとリロードしても検索条件消えない
 		dt_read_db_data=[]
@@ -416,7 +416,7 @@ def ya_src_tool_v3_01(request):
 	else:
 		return HttpResponseRedirect('/work_apps/accounts/login/')
 # ログイン機能なし
-def ya_src_tool_v3(request):
+def ya_src_tool_v3_1(request):
 	# ここで初期化しないとリロードしても検索条件消えない
 	dt_read_db_data=[]
 	# フォームに入力する初期データ
@@ -455,6 +455,25 @@ def ya_src_tool_v3(request):
 			SearchQueryModel.objects.filter(id=request.POST["select_db_data"]).delete()
 		elif request.POST["db_action_btn"]=="all_delete":
 			SearchQueryModel.objects.all().delete()
+	dt_data={'dt_exists_db_data':dt_exists_db_data,
+					 'dt_read_db_data':dt_read_db_data,
+					 'dt_wday_data':dt_wday_data,
+					 'dt_time_data':dt_time_data,
+					 'dt_analysis_pages_data':dt_analysis_pages_data,
+					 }
+	return render(request, 'work_apps/ya_src_tool_v3.html', dt_data)
+# ログイン機能なし DB機能なし
+def ya_src_tool_v3(request):
+	# ここで初期化しないとリロードしても検索条件消えない
+	dt_read_db_data=[]
+	# フォームに入力する初期データ
+	dt_exists_db_data={'exists_db_data':{"0":"日曜日","1":"月曜日","2":"火曜日","3":"水曜日","4":"木曜日","5":"金曜日","6":"土曜日"}}
+	dt_wday_data={'wday_data':{"0":"日曜日","1":"月曜日","2":"火曜日","3":"水曜日","4":"木曜日","5":"金曜日","6":"土曜日"}}
+	dt_time_data={'time_data':{str(x):str(x)+"時" for x in range(24)}}
+	dt_analysis_pages_data={'analysis_pages_data':{str(x):str(x)+"ページ目" for x in range(1,31)}}
+	# print(db_id)
+	# 検索条件保存ボタンか検索条件呼び出しボタンが押されたときの処理
+	# これを付けないとリロードしたときにも保存処理が行われる
 	dt_data={'dt_exists_db_data':dt_exists_db_data,
 					 'dt_read_db_data':dt_read_db_data,
 					 'dt_wday_data':dt_wday_data,

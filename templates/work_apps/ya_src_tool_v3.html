@@ -254,7 +254,7 @@
 					<textarea name="query_name" class="textarea-width20" rows="1" style="vertical-align:top"></textarea>
 					<button type="submit" name="db_action_btn" value='save' onclick="sametab('')">保存</button>
 				</p>
-				<!-- 読み込み 削除 すべて削除-->
+				<!-- 読み込み 削除 すべて削除 -->
 				<p>
 					<select name="select_db_data">
 						{% for item in dt_exists_db_data.exists_db_data %}
@@ -267,7 +267,8 @@
 				</p>
 			</form>
 			<p>
-				<button onclick="location.href='{% url 'logout' %}'">ログアウト</button>
+				<!--
+				-->
 			</p>
 
 
