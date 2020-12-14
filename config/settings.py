@@ -114,7 +114,7 @@ STATICFILES_DIRS = (
 # デバッグの時はコメントアウトしないと表示されない
 # 本番環境でもコメントアウトしたままで表示されるのでコメントアウトしたままでOK
 # コメントアウトしたままでもadminページではcss適用されているので使用しない？
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 ##################
 # Authentication #
