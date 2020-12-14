@@ -366,7 +366,7 @@ def output_v2(request):
 
 
 # ログイン機能あり DB機能あり
-def ya_src_tool_v3_0(request):
+def ya_src_tool_v3(request):
 	if request.user.is_authenticated:
 		# ここで初期化しないとリロードしても検索条件消えない
 		dt_read_db_data=[]
@@ -416,7 +416,7 @@ def ya_src_tool_v3_0(request):
 	else:
 		return HttpResponseRedirect('/work_apps/accounts/login/')
 # ログイン機能なし
-def ya_src_tool_v3(request):
+def ya_src_tool_v3_0(request):
 	# ここで初期化しないとリロードしても検索条件消えない
 	dt_read_db_data=[]
 	# フォームに入力する初期データ

@@ -8,6 +8,6 @@ urlpatterns = [
 	path('ya_src_tool/output', views.output),
 	path('ya_src_tool_v2/',views.ya_src_tool_v2),
 	path('ya_src_tool_v2/output_v2',views.output_v2),
-	path('ya_src_tool/v3/',views.ya_src_tool_v3,name='aaa'),
+	path('ya_src_tool/v3/',views.ya_src_tool_v3),
 	path('ya_src_tool/v3/output',views.output_v3),
 ]

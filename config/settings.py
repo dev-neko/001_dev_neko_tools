@@ -119,10 +119,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 ##################
 # Authentication #
 ##################
-# LOGIN_URL = '/login'
-# LOGIN_REDIRECT_URL = '/work_apps/ya_src_tool/v3/'
-# LOGOUT_REDIRECT_URL = '/work_apps/accounts/login/'
-
-# LOGIN_REDIRECT_URL = 'aaa'
-# LOGOUT_REDIRECT_URL = '/work_apps/accounts/login/'
+LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/work_apps/ya_src_tool/v3/'
+LOGOUT_REDIRECT_URL = '/work_apps/accounts/login/'
 
