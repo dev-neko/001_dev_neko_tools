@@ -387,6 +387,7 @@ def ya_src_tool_v3(request):
 					md_radio_url=request.POST["radio_url"],
 					md_src_url=request.POST["src_raw_url"],
 					md_seller_url=request.POST["src_seller_url"],
+					md_radio_e_wday_e_time=request.POST["radio_e_wday_e_time"],
 					md_e_wday=request.POST["select_e_wday"],
 					md_e_time=request.POST["select_e_time"],
 					md_analysis_pages=request.POST["analysis_pages"],
@@ -486,7 +487,10 @@ def output_v3(request):
 	# テンプレへ渡す辞書
 	auc_data_dict=[]
 	# 何曜日の何時までに終了か指定
-	e_wday_e_time="&e_wday="+request.POST["select_e_wday"]+"&e_time="+request.POST["select_e_time"]
+	if request.POST["radio_e_wday_e_time"]=="ON":
+		e_wday_e_time="&e_wday="+request.POST["select_e_wday"]+"&e_time="+request.POST["select_e_time"]
+	else:
+		e_wday_e_time=""
 	# 追加のフィルタ
 	post_rate=request.POST["rate"]
 	post_exclude_id=request.POST["exclude_id"].split(',')
@@ -542,7 +546,7 @@ def output_v3(request):
 		src_url=url_b_get(request,request.POST["src_seller_url"],e_wday_e_time)
 		src_url_parser=requests.get(src_url)
 		bs4obj=bs4.BeautifulSoup(src_url_parser.text,'html.parser')
-		print(bs4obj)
+		# print(bs4obj)
 		# 出品者名
 		# auc_seller=bs4obj.find("span",attrs={'class':'seller__name'}).text
 		auc_seller=None
@@ -651,11 +655,16 @@ def filter_judge_get(request,auc_auto_ext,post_rate,auc_rating,post_exclude_id,a
 # ヤフオクで絞り込んだURLの表示件数と解析ページ数から&b=を計算
 # &b= も &n= もすでにURLに含まれているとする
 def url_b_get(request,target_url,e_wday_e_time):
-	post_dispn=re.search(r'n=([0-9]*)',target_url).groups()[0]
+	post_dispn=re.search('[&?]n=([0-9]*)',target_url).groups()[0]
+	# print(post_dispn)
 	post_analysis_pages=request.POST["analysis_pages"]
+	# print(post_analysis_pages)
 	if post_analysis_pages!="1":
 		post_analysis_pages=1+int(post_dispn)*(int(post_analysis_pages)-1)
+		# print(post_analysis_pages)
 	# bs4で解析するURL
-	src_url=re.sub(r'b=[0-9]*',"&b="+str(post_analysis_pages),target_url)+e_wday_e_time
+	# &b= で始まらない場合はエラーになるけど、そういうパターンはなさそうなのでとりあえずこれで
+	src_url=re.sub('&b=[0-9]*',"&b="+str(post_analysis_pages),target_url)+e_wday_e_time
+	print(src_url)
 	return src_url
 """関数"""

@@ -76,9 +76,16 @@
 					<textarea name="src_seller_url" class="textarea-width100" rows="2">{{ dt_read_db_data.read_db_data.md_seller_url }}</textarea>
 				</p>
 				</p>
-				<!-- 終了する曜日を指定 -->
+				<!-- 終了する曜日・時間帯を指定 -->
 				<p>
-					<span>終了する曜日を指定</span><br>
+					<span>終了する曜日・時間帯を指定</span><br>
+					{% if dt_read_db_data.read_db_data.md_radio_e_wday_e_time == "OFF" or dt_read_db_data.read_db_data.md_radio_e_wday_e_time == None %}
+						<label><input type="radio" name="radio_e_wday_e_time" value="OFF" checked> OFF</label>
+						<label><input type="radio" name="radio_e_wday_e_time" value="ON"> ON</label><br>
+					{% else %}
+						<label><input type="radio" name="radio_e_wday_e_time" value="OFF"> OFF</label>
+						<label><input type="radio" name="radio_e_wday_e_time" value="ON" checked> ON</label><br>
+					{% endif %}
 					<select name="select_e_wday">
 						{% for key,value in dt_wday_data.wday_data.items %}
 							{% if dt_read_db_data.read_db_data.md_e_wday == key %}
@@ -88,10 +95,6 @@
 							{% endif %}
 						{% endfor %}
 					</select>
-				</p>
-				<!-- 終了する時間帯を指定 -->
-				<p>
-					<span>終了する時間帯を指定</span><br>
 					<select name="select_e_time">
 						{% for key,value in dt_time_data.time_data.items %}
 							{% if dt_read_db_data.read_db_data.md_e_time == key %}
@@ -262,8 +265,10 @@
 						{% endfor %}
 					</select>
 					<button type="submit" name="db_action_btn" value='read' onclick="sametab('')">読込</button>
-					<button type="submit" name="db_action_btn" value='delete' onclick="sametab('')">削除</button>
+					<button type="submit" name="db_action_btn" value='delete' onclick="return sametab_conf('')">削除</button>
+					<!--
 					<button type="submit" name="db_action_btn" value='all_delete' onclick="sametab('')">全て削除</button>
+					-->
 				</p>
 			</form>
 			<p>
@@ -306,6 +311,34 @@
 				$('[data-toggle="popover"]').popover();
 			});
 		})();
+		// submitボタンをクリックして同じタブで実行させる
+		function sametab(u){
+			var f = document.querySelector("form");
+			var a = f.setAttribute("action", u);
+			var a = f.setAttribute("target", "");
+			document.querySelector("form").submit();
+		}
+		// submitボタンをクリックして同じタブで実行させる
+		// 確認画面付き
+		function sametab_conf(u){
+			if(window.confirm('削除しますか？')){
+				var f = document.querySelector("form");
+				var a = f.setAttribute("action", u);
+				var a = f.setAttribute("target", "");
+				document.querySelector("form").submit();
+			}
+			else{
+				return false;
+			}
+		}
+		// submitボタンをクリックして新しいタブで実行させる
+		function newtab(u){
+			var f = document.querySelector("form");
+			var a = f.setAttribute("action", u);
+			var a = f.setAttribute("target", "_blank");
+			document.querySelector("form").submit();
+		}
+
 		/*
 		// ラジオボタンとテキストボックスを連動 評価レート
 		$(function(){
@@ -341,19 +374,6 @@
 			 });
 		});
 		*/
-		// submitボタンをクリックして同じタブで実行させる
-		function sametab(u){
-			var f = document.querySelector("form");
-			var a = f.setAttribute("action", u);
-			var a = f.setAttribute("target", "");
-			document.querySelector("form").submit();
-		}
-		// submitボタンをクリックして新しいタブで実行させる
-		function newtab(u){
-			var f = document.querySelector("form");
-			var a = f.setAttribute("action", u);
-			var a = f.setAttribute("target", "_blank");
-			document.querySelector("form").submit();
-		}
+
 	</script>
 </html>

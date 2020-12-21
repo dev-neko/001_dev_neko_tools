@@ -10,6 +10,7 @@ python manage.py runserver
 # 本番環境用
 DEBUG = False
 ALLOWED_HOSTS = ['buta-neko-tools.com']
+STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'static')
 
 # ------------------------------
 
@@ -111,10 +112,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
  os.path.join(BASE_DIR, 'static'),
 )
-# デバッグの時はコメントアウトしないと表示されない
-# 本番環境でもコメントアウトしたままで表示されるのでコメントアウトしたままでOK
-# コメントアウトしたままでもadminページではcss適用されているので使用しない？
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 ##################
 # Authentication #

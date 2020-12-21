@@ -13,6 +13,7 @@ class SearchQueryModel(models.Model):
 	md_radio_url=models.CharField(max_length=50,null=True)
 	md_src_url=models.TextField(null=True)
 	md_seller_url=models.TextField(null=True)
+	md_radio_e_wday_e_time=models.CharField(max_length=50,null=True)
 	md_e_wday=models.CharField(max_length=50,null=True)
 	md_e_time=models.CharField(max_length=50,null=True)
 	md_analysis_pages=models.CharField(max_length=50,null=True)
