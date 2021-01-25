@@ -1,18 +1,13 @@
 import os
 
-# ------------------------------
-"""
-python manage.py runserver
-"""
-# デバッグ用
-# DEBUG = True
-# ALLOWED_HOSTS = ['*']
-# 本番環境用
-DEBUG = False
-ALLOWED_HOSTS = ['buta-neko-tools.com']
-STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'static')
 
-# ------------------------------
+# DEBUG = True
+DEBUG = False
+if DEBUG:
+	ALLOWED_HOSTS = ['*']
+else:
+	ALLOWED_HOSTS = ['buta-neko-tools.com']
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -112,6 +107,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
  os.path.join(BASE_DIR, 'static'),
 )
+
+# akiyokoさんのこれでいいと思う
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# PROJECT_NAME = os.path.basename(BASE_DIR)
+# STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
+
 
 ##################
 # Authentication #
