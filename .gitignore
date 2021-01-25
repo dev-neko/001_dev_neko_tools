@@ -1,3 +1,4 @@
 venv
 bk
 no_commit
+db.sqlite3
