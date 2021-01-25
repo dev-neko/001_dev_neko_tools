@@ -108,11 +108,15 @@ USE_TZ = True
 #  os.path.join(BASE_DIR, 'static'),
 # )
 
-# akiyokoさんのこれでいいと思う
+# akiyokoさんのは
+# STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
+# だったけど、これだとエラー出て
+# STATIC_ROOT = 'var/www/{}/static'.format(PROJECT_NAME)
+# にしたら実行できた
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 PROJECT_NAME = os.path.basename(BASE_DIR)
-STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
+STATIC_ROOT = 'var/www/{}/static'.format(PROJECT_NAME)
 
 
 ##################
