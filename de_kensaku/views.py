@@ -38,7 +38,7 @@ def output(request):
 		['Amazon',
 			 'https://www.amazon.co.jp/s?k=',
 			 '',
-			 'https://uic.jp/calendar/',
+			 'https://www.amazon.co.jp/gp/cart/view.html',
 			 'https://www.amazon.co.jp/gp/css/order-history'],
 		['ヨドバシ.com',
 			 'https://www.yodobashi.com/?word=',
