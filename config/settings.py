@@ -1,8 +1,8 @@
 import os
 
 
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 if DEBUG:
 	ALLOWED_HOSTS = ['*']
 else:
@@ -28,7 +28,6 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	'de_kensaku',
 	'dev',
-	'work_apps',
 ]
 
 MIDDLEWARE = [
@@ -117,12 +116,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 PROJECT_NAME = os.path.basename(BASE_DIR)
 STATIC_ROOT = 'var/www/{}/static'.format(PROJECT_NAME)
-
-
-##################
-# Authentication #
-##################
-LOGIN_URL = '/login'
-LOGIN_REDIRECT_URL = '/work_apps/ya_src_tool/v3/'
-LOGOUT_REDIRECT_URL = '/work_apps/accounts/login/'
-

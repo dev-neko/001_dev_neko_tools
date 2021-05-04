@@ -1,5 +1,3 @@
-
-
 import re
 import urllib.parse
 from django.shortcuts import render
