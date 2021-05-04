@@ -1,2 +1,10 @@
 venv
+__pycache__
+staticfiles
+.idea
+*.py[co]$
+
+db.sqlite3
+local_settings.py
+chromedriver.exe
 bk
