@@ -1,8 +1,4 @@
-<!-
-
--->
-
-{% extends "base.html" %}
+{% extends "base/base.html" %}
 {% block content %}
 {% load static %}
 <link href="{% static 'css/input.css' %}" rel="stylesheet">
@@ -18,37 +14,9 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-155316780-1');
 		</script>
-		<!-- サジェスト表示のために追加した ここから  -->
-		<!-- StyleSheet CDN -->
-		<!-- これは多分サジェストの部分を装飾している -->
-		<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
-		<!-- JavaScript CDN -->
-		<!-- これはajaxとかJavaScriptの部分 -->
-		<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-		<!-- サジェスト表示のために追加した ここまで -->
-		<!--
-		これ無くせば表示おかしくならなかった
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		-->
 	</head>
 
 	<body>
-		<!-- ポッパーでヘルプボタン なぜか?が少しずれる ショッピングのを参考にする
-		<span class="d-flex align-items-center">
-			<span>ヤフオクで絞り込んだURL</span>
-			<button type="button" class="btn btn-dark rounded-circle p-0"
-							style="width:20px;height:20px;position:relative;left:3px;"
-							data-trigger="focus"
-							data-placement="right"
-							data-toggle="popover"
-							data-html="true"
-							data-content="URLには解析を行うために必要となる、表示件数(&n=)、ページ番号(&b=)、表示方法は「タイトルと画像」(&mode=2)、が含まれるようにお願い致します。<br>終了する曜日と時間帯についてはWebアプリにて指定可能なためURLには含めないようにお願い致します。">？
-			</button>
-		</span>
-		-->
-
 		<form method="post" action="output" target="_blank">
 			<div class="form-group">
 				<div class="row">
@@ -63,11 +31,32 @@
 					</div>
 				</div>
 			</div>
-			<button type="button" class="btn btn-primary" id="js-paste">ペースト</button>
-			<input type="reset" class="btn btn-warning" value="クリア" onclick="clfc()">
-			<!--
-			<input type="reset" name="rstpst" value="クリアしてペースト">
-			-->
+
+			<button type="button" class="btn btn-primary" id="js-paste" title="ペースト">
+				<span class="icon-text-color">
+					<span class="d-flex align-items-center">
+						<span class='sespbtn-paste fb-2x'></span>
+					</span>
+				</span>
+			</button>
+
+			<button type="reset" class="btn btn-warning" title="クリア" onclick="clfc()">
+				<span class="icon-text-color">
+					<span class="d-flex align-items-center">
+						<span class='sespbtn-erase fb-2x'></span>
+					</span>
+				</span>
+			</button>
+
+			<button type="button" class="btn btn-success" id="rstpst" title="クリアしてペースト" onclick="clear_paste_btn()">
+				<span class="icon-text-color">
+					<span class="d-flex align-items-center">
+						<span class='sespbtn-erase_paste fb-2x'></span>
+					</span>
+				</span>
+			</button>
+
+
 
 			<p><br><strong>サーチエンジン</strong>
 				<div class="form-row align-items-top">
@@ -98,19 +87,6 @@
 							</div>
 						</div>
 					</div>
-
-					<!--
-					改良したので不要になった
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="URLを直接開く" src="{% static 'img/URLを直接開く.png' %}" width="90"><br>
-							</div>
-							<p>URLを直接開く</p>
-						</div>
-					</div>
-					-->
-
 				</div>
 			</p>
 
@@ -364,44 +340,7 @@
 				</div>
 			</p>
 		</form>
-
-
-
-
-
-
-
-
-		<script type="text/javascript">
-			//BootstrapのPopperを使用するためのJS
-			(function() {
-				window.addEventListener("load", function () {
-					$('[data-toggle="popover"]').popover();
-				});
-			})();
-			$(function() {
-					$('#target').autocomplete({
-							source: function(request, response) {
-									$.ajax({
-											url: "https://www.google.com/complete/search",
-											data: {hl:'ja', client:'firefox', q: request.term},
-											dataType: "jsonp",
-											type: "GET",
-											success :function(data) {
-													response(data[1]);
-											}
-									});
-							},
-							autoFocus: false,
-							delay: 200,
-							minLength: 1,
-					});
-			});
-		</script>
-		<!-- jQuery、Popper.js、Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	</body>
+	<script type="text/javascript" src="{% static 'js/input.js' %}"></script>
 </html>
 {% endblock %}

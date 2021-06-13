@@ -62,7 +62,7 @@ def output(request):
 			 'https://sm.rakuten.co.jp/search?keyword=',
 			 '',
 			 'https://sm.rakuten.co.jp/step/cart',
-			 'https://sm.rakuten.co.jp/mypage/purchase'],
+			 'https://sm.rakuten.co.jp/mypage/order'],
 		['ビックカメラ.com',
 			 'https://www.biccamera.com/bc/category/?q=',
 			 'shift-jis',

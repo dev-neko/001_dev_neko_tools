@@ -27,6 +27,10 @@ def modal01(request):
 	template=loader.get_template("dev/modal01.html")
 	return HttpResponse(template.render({},request))
 
+def modal02(request):
+	template=loader.get_template("dev/modal02.html")
+	return HttpResponse(template.render({},request))
+
 def tame(request):
 	template=loader.get_template("dev/tame.html")
 	return HttpResponse(template.render({},request))
