@@ -1,19 +1,49 @@
-<!doctype html>
+{% load static %}
+<!-- アイコンフォント デフォルト設定 -->
+<link href="{% static 'iconfont/kihuicon-v1.1/style.css' %}" rel="stylesheet">
+<!-- アイコンフォント カスタマイズ用 -->
+<link href="{% static 'iconfont/style-cstm.css' %}" rel="stylesheet">
+
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>iframe with x-frame-bypass</title>
-    <link rel="stylesheet" href="index.css">
-    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
-  </head>
-  <body>
-    <div class="main">
-      <iframe id="main-frame" frameborder="no" is="x-frame-bypass"
-        src="https://buta-neko-tools.com/de-kensaku/">
-      </iframe>
-    </div>
+	<head>
+		<meta charset="utf-8">
+		<!-- viewport meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<!-- cb-materialbtn.css ブトスラのボタンの色を変えるライブラリ -->
+		<link rel="stylesheet" href="https://cdn.rawgit.com/maechabin/bootstrap-material-button-color/master/dist/cb-materialbtn.0.5.5.min.css">
+		<!-- clipboard.js クリップボードにコピーするライブラリ -->
+		<script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+		<style>
+		</style>
+	</head>
+	<body>
 
 
-  </body>
+
+
+
+{% include "base/modaltmp_v1.html" with name="Amazon_gift" title="Amazonギフト券" desc='<p><a href="https://www.amazon.co.jp/dp/B004N3APGO" target="_blank"><u>Amazonギフト券(Eメールタイプ)</u></a>からご支援お願いいたします！</p><div align="center"><img src="" class="figure-img img-fluid rounded shadow-sm"></div><p>「アカウントサービス」→「ログインとセキュリティ」で設定されているお名前が私がAmazonギフト券を登録した後の「ギフト券の贈り主に、お礼のメールを送付」の画面で表示されてしまうため、<font color="red"><b>予めニックネームなどに変更</b></font>しておく事をお勧めいたします。</p><p>詳しいご支援方法は<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>をご参照ください。</p>' only %}
+
+
+
+
+		<!-- jQuery、Popper.js、Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script>
+			<!-- ブトスラのツールチップ -->
+			$('[data-toggle="tooltip"]').tooltip();
+			<!-- クリップボードにコピーするJS なぜかhedderに置いても反応しなかった -->
+			new ClipboardJS('.cbjs_tn');
+			<!-- ブトスラのポッパー -->
+			(function() {
+				window.addEventListener("load", function () {
+					$('[data-toggle="popover"]').popover();
+				});
+			})();
+		</script>
+	</body>
 </html>

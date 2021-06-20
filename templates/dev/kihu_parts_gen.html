@@ -1,15 +1,54 @@
+{% extends "base/base.html" %}
+{% block content %}
 {% load static %}
 <html>
 <head>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+	<style type="text/css">
+		.textarea-width100 {
+			width: 100%;
+		}
+	</style>
 	<script type="text/javascript" language="javascript">
 		function onButtonClick() {
-			target = document.getElementById("copyTarget");
-			moji_1 = document.forms.id_form1.id_textBox1.value;
-			moji_2 = document.forms.id_form1.id_textBox2.value;
-			moji_3 = document.forms.id_form1.id_textBox3.value;
-			moji_4 = document.forms.id_form1.id_textBox4.value;
-			target.innerText = moji_1 +","+ moji_2 +","+ moji_3 +","+ moji_4;
+			const ky = {name:		'Kyash',
+									title:	'Kyash',
+									desc:		document.forms.id_form1.Kyash_desc.value}
+			const pr = {name:		'pring',
+									title:	'pring',
+									desc:		document.forms.id_form1.pring_desc.value}
+			const aw = {name:		'Amazon_wish',
+									title:	'Amazonほしい物リスト',
+									desc:		document.forms.id_form1.Amazon_wish_desc.value}
+			const ag = {name:		'Amazon_gift',
+									title:	'Amazonギフト券',
+									desc:		document.forms.id_form1.Amazon_gift_desc.value}
+			document.getElementById("copyTarget").innerHTML = tag`${ ky }` +"\n"+ tag`${ pr }` +"\n"+ tag`${ aw }` +"\n"+ tag`${ ag }`;
+		}
+		function tag(strings,way){
+			return  html = `<!-- モーダルに紐づくボタン ${ way.title } -->
+<button type="button" class="btn btn-lightblue600_rsd" data-toggle="modal" data-target="#${ way.name }" title="${ way.title }">
+	<span class="icon-text-color">
+		<span class="d-flex align-items-center">
+			<span class="kihuicon-${ way.name } fb-2x"></span>
+		</span>
+	</span>
+</button>
+<!-- モーダル本体 ${ way.title } -->
+<div class="modal fade" id="${ way.name }" tabindex="-1" role="dialog" aria-labelledby="${ way.name }_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="${ way.name }_label2">${ way.title }で支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				${ way.desc }
+			</div>
+		</div>
+	</div>
+</div>`;
 		}
 		function copyToClipboard() {
 			// コピー対象をJavaScript上で変数として定義する
@@ -22,145 +61,137 @@
 			alert("コピーできました！ : " + copyTarget.value);
 		}
 		// ------------------------------
-		// モーダルウィンドウ
-		$(function(){
-			var winScrollTop;
-			$('.js-modal-open').each(function(){
-					$(this).on('click',function(){
-							//スクロール位置を取得
-							winScrollTop = $(window).scrollTop();
-							var target = $(this).data('target');
-							var modal = document.getElementById(target);
-							$(modal).fadeIn();
-							return false;
-					});
-			});
-			$('.js-modal-close').on('click',function(){
-					$('.js-modal').fadeOut();
-					$('body,html').stop().animate({scrollTop:winScrollTop}, 100);
-					return false;
-			});
-		});
-		// ------------------------------
 	</script>
-	<style>
-		*{
-			box-sizing: border-box;
-			margin: 0;
-			padding: 0;
-			overflow : auto; //状況に応じて縦スクロールバーが出現
-		}
-		.content{
-			margin: 0 auto;
-			padding: 40px;
-		}
-		.box{
-			background: #eee;
-			height: 200px;
-			margin-bottom: 100px;
-		}
-		.modal{
-			display: none;
-			height: 100vh;
-			position: fixed;
-			top: 0;
-			width: 100%;
-		}
-		.modal__bg{
-			background: rgba(0,0,0,0.8);
-			height: 100vh;
-			position: absolute;
-			width: 100%;
-		}
-		.modal__content{
-			background: #fff;
-			left: 50%;
-			padding: 40px;
-			position: absolute;
-			top: 50%;
-			transform: translate(-50%,-50%);
-			width: 60%;
-			height : 80%; //お好みの高さで固定
-		}
-		/*アイコンをクリックしたときの青枠を消す*/
-		*:focus {
-			outline: none;
-		}
-	</style>
 </head>
 <body>
 	<form name="form1" id="id_form1" action="">
-		<p>pringのID<br>
-			<input name="textBox1" id="id_textBox1" type="text" value="aaa" />
+		<p>「Amazon欲しい物リスト」の説明<br>
+			<textarea id="Amazon_wish_desc">ccc</textarea>
 		</p>
-		<p>kyashのID<br>
-			<input name="textBox1" id="id_textBox2" type="text" value="bbb" />
+		<p>「kyash」の説明<br>
+			<textarea id="Kyash_desc">xxx</textarea>
 		</p>
-		<p>Amazon欲しい物リストのURL<br>
-			<input name="textBox1" id="id_textBox3" type="text" value="ccc" />
+		<p>「pring」の説明<br>
+			<textarea id="pring_desc">bbb</textarea>
 		</p>
-		<p>Amazonギフト券を受け取るメールアドレス<br>
-			<input name="textBox1" id="id_textBox4" type="text" value="ddd" />
+		<p>「Amazonギフト券」の説明<br>
+			<textarea id="Amazon_gift_desc">ddd</textarea>
 		</p>
 		<input type="button" value="生成" onclick="onButtonClick();" />
 	</form>
-	<p>ここのHTMLをブログに張り付けてください。<br>
-		<textarea name="kanso" rows="4" cols="40" id="copyTarget"></textarea><br>
+	<p>このHTMLをブログに張り付けてください。<br>
+		<textarea name="kanso" class="textarea-width100" rows="10" cols="40" id="copyTarget"></textarea><br>
 		<button onclick="copyToClipboard()">コピーする</button>
 	</p>
 
-	<div class="content">
-		<input type="image" class="js-modal-open" data-target="modal01" src="{% static 'img/aid/Kyash.png' %}" width="90">
-		<input type="image" class="js-modal-open" data-target="modal02" src="{% static 'img/aid/pring.png' %}" width="90">
-		<input type="image" class="js-modal-open" data-target="modal03" src="{% static 'img/aid/Amazonギフト券.png' %}" width="90">
-		<input type="image" class="js-modal-open" data-target="modal04" src="{% static 'img/aid/pring.png' %}" width="90"><br>
+
+
+
+<!-- モーダルに紐づくボタン Kyash -->
+<button type="button" class="btn btn-lightblue600_rsd" data-toggle="modal" data-target="#Kyash" title="Kyash">
+	<span class="icon-text-color">
+		<span class="d-flex align-items-center">
+			<span class="kihuicon-Kyash fb-2x"></span>
+		</span>
+	</span>
+</button>
+<!-- モーダル本体 Kyash -->
+<div class="modal fade" id="Kyash" tabindex="-1" role="dialog" aria-labelledby="Kyash_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="Kyash_label2">Kyashで支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				xxx
+			</div>
+		</div>
 	</div>
-	<div id="modal01" class="modal js-modal">
-		<div class="modal__bg js-modal-close"></div>
-		<div class="modal__content">
-			<p>
-				Kyashで寄付します。<br><br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-				～さんのIDは～です。<br>
-			</p>
-			<a class="js-modal-close" href="">閉じる</a>
-		</div><!--modal__inner-->
-	</div><!--modal-->
-	<div id="modal02" class="modal js-modal">
-		<div class="modal__bg js-modal-close"></div>
-		<div class="modal__content">
-			<p>
-				pringで寄付します。<br>
-				～さんのIDは～です。<br>
-			</p>
-			<a class="js-modal-close" href="">閉じる</a>
-		</div><!--modal__inner-->
-	</div><!--modal-->
+</div>
+<!-- モーダルに紐づくボタン pring -->
+<button type="button" class="btn btn-lightblue600_rsd" data-toggle="modal" data-target="#pring" title="pring">
+	<span class="icon-text-color">
+		<span class="d-flex align-items-center">
+			<span class="kihuicon-pring fb-2x"></span>
+		</span>
+	</span>
+</button>
+<!-- モーダル本体 pring -->
+<div class="modal fade" id="pring" tabindex="-1" role="dialog" aria-labelledby="pring_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="pring_label2">pringで支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				bbb
+			</div>
+		</div>
+	</div>
+</div>
+<!-- モーダルに紐づくボタン Amazonほしい物リスト -->
+<button type="button" class="btn btn-lightblue600_rsd" data-toggle="modal" data-target="#Amazon_wish" title="Amazonほしい物リスト">
+	<span class="icon-text-color">
+		<span class="d-flex align-items-center">
+			<span class="kihuicon-Amazon_wish fb-2x"></span>
+		</span>
+	</span>
+</button>
+<!-- モーダル本体 Amazonほしい物リスト -->
+<div class="modal fade" id="Amazon_wish" tabindex="-1" role="dialog" aria-labelledby="Amazon_wish_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="Amazon_wish_label2">Amazonほしい物リストで支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				ccc
+			</div>
+		</div>
+	</div>
+</div>
+<!-- モーダルに紐づくボタン Amazonギフト券 -->
+<button type="button" class="btn btn-lightblue600_rsd" data-toggle="modal" data-target="#Amazon_gift" title="Amazonギフト券">
+	<span class="icon-text-color">
+		<span class="d-flex align-items-center">
+			<span class="kihuicon-Amazon_gift fb-2x"></span>
+		</span>
+	</span>
+</button>
+<!-- モーダル本体 Amazonギフト券 -->
+<div class="modal fade" id="Amazon_gift" tabindex="-1" role="dialog" aria-labelledby="Amazon_gift_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="Amazon_gift_label2">Amazonギフト券で支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				ddd
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
 
 
 
 
 </body>
 </html>
+{% endblock %}

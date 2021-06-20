@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+{% block content %}
+{% load static %}
+<head>
+	<style type="text/css">
+		.textarea-width100 {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<form name="form1" id="id_form1" action="">
+		<p>「kyash」の説明<br>
+			<textarea id="Kyash_desc" class="textarea-width100" rows="10">xxx</textarea>
+		</p>
+		<p>「kyash」のボタンの色<br>
+			<textarea id="Kyash_color" class="textarea-width100" rows="1">lightblue600_rsd</textarea>
+		</p>
+		<p>「pring」の説明<br>
+			<textarea id="pring_desc" class="textarea-width100" rows="10">bbb</textarea>
+		</p>
+		<p>「pring」のボタンの色<br>
+			<textarea id="pring_color" class="textarea-width100" rows="1">deeporange300_rsd</textarea>
+		</p>
+		<p>「Amazonギフト券」の説明<br>
+			<textarea id="Amazon_gift_desc" class="textarea-width100" rows="10">ddd</textarea>
+		</p>
+		<p>「Amazonギフト券」のボタンの色<br>
+			<textarea id="Amazon_gift_color" class="textarea-width100" rows="1">yellow600_rsd</textarea>
+		</p>
+		<p>「Amazon欲しい物リスト」の説明<br>
+			<textarea id="Amazon_wish_desc" class="textarea-width100" rows="10">ccc</textarea>
+		</p>
+		<p>「Amazon欲しい物リスト」のボタンの色<br>
+			<textarea id="Amazon_wish_color" class="textarea-width100" rows="1">teal300_rsd</textarea>
+		</p>
+		<input type="button" value="生成" onclick="onButtonClick();" />
+	</form>
+	<p>このHTMLをブログに張り付けてください。<br>
+		<textarea id="copyTarget" class="textarea-width100" rows="10"></textarea><br>
+	</p>
+	<p>
+		<button type="button" onclick="copyToClipboard()">コピーする</button>
+	</p>
+
+	<script type="text/javascript" src="{% static 'js/support_parts_gen_input.js' %}"></script>
+
+</body>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- モーダルに紐づくボタン -->
+<button type="button" class="btn btn-lightblue600_rsd" data-toggle="modal" data-target="#{{ name }}" title="{{ title }}">
+	<span class="icon-text-color">
+		<span class="d-flex align-items-center">
+			<span class="kihuicon-{{ name }} fb-2x"></span>
+		</span>
+	</span>
+</button>
+<!-- モーダル本体 -->
+<div class="modal fade" id="{{ name }}" tabindex="-1" role="dialog" aria-labelledby="{{ name }}_label1" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="{{ name }}_label2">{{ title }}で支援する</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				{{ desc }}
+			</div>
+		</div>
+	</div>
+</div>

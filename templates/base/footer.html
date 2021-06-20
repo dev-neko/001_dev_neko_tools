@@ -11,7 +11,7 @@
 		<div class="row">
 			<!-- ヘッダー以外のリンク -->
 			<div class="col-xl">
-				<ul class="acount-icon">
+				<ul class="list-inline">
 					<li class="list-inline-item"><a href="https://ocd-danshi.com/de-kensaku-update">更新履歴</a></li>
 					<li class="list-inline-item"><a href="javascript:void(0)">サイトマップ</a></li>
 					<li class="list-inline-item"><a href="javascript:void(0)">プライバシーポリシー</a></li>
@@ -19,20 +19,15 @@
 				</ul>
 			</div>
 
-			<div class="border-hr"></div>
 
 			<!-- 寄付先 -->
 			<div class="col-xl">
-				<p>以下のいずれかからご支援いただけますと幸いです。<br>
-				サイト運営費・開発費・生活費として使用させていただきます。</p>
-				<!--
-				<ul class="payment">
-					<li><a href="#"><i class="fa fa-cc-amex" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-paypal" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-cc-visa" aria-hidden="true"></i></a></li>
-				</ul>
-				-->
+				<p class="support-parts-desc">
+					ツールがお役に立てましたら、以下の方法からご支援いただけますと助かります。<br>サイト運営費・開発費・生活費として使用させていただきます。
+				</p>
+				<!-- support_parts ここから -->
+				{% include "base/support_parts.html" %}
+				<!-- support_parts ここまで -->
 			</div>
 
 			<!--

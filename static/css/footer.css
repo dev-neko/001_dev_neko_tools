@@ -1,65 +1,22 @@
-/*FOOTER START///////////////////*/
 .footer {
-    padding: 20px 0 20px 0;
-    background-color: #000000;
-    color: #878c94;
+	padding: 20px 0 20px 0;
+	background-color: #000000;
+}
+.footer .support-parts-desc{
+	color: #878c94;
 }
 .footer .title{
 	text-align: left;
 	color:#fff;
 	font-size:25px;
 }
-.footer .social-icon{
-	padding:0px;
-	margin:0px;
-}
-.footer .social-icon a{
-	display:inline-block;
-	color:#fff;
-	font-size:25px;
-	padding:5px;
-}
-.footer .acount-icon a{
+.footer .list-inline a{
 	display:block;
 	color:#fff;
 	font-size:18px;
-	margin:0px;
-	padding:0px;
-
-}
-.footer .acount-icon .fa{
-	margin:0px;
-	padding:0px;
-}
-.footer .category a {
-    text-decoration: none;
-    color: #fff;
-    display: inline-block;
-    padding: 5px 20px;
-    margin: 1px;
-    border-radius:4px;
-    margin-top: 6px;
-    background-color: black;
-    border: solid 1px #fff;
-}
-.footer .payment{
-	margin:0px;
-	padding:0px;
-	list-style-type:none
-}
-.footer .payment li{
-	list-style-type:none
-}
-.footer .payment li a {
-    text-decoration: none;
-    display: inline-block;
-    color: #fff;
-    float: left;
-    font-size: 25px;
-    padding: 10px 10px;
 }
 .footer .border-hr{
-  border-top:solid 1px #fff;
-  margin-top:15px;
-  margin-bottom:10px;
+	border-top:solid 1px #fff;
+	margin-top:15px;
+	margin-bottom:10px;
 }

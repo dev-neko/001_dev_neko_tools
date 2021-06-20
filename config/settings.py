@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'de_kensaku',
+    'support_parts_gen',
 ]
 
 # Celery設定 REDIS_URL が見つからないローカル環境では第二引数を適用
