@@ -21,7 +21,17 @@ function onButtonClick() {
 							desc:		document.forms.id_form1.Amazon_gift_desc.value,
 							color:	document.forms.id_form1.Amazon_gift_color.value,
 							}
-	document.getElementById("copyTarget").innerHTML = '<div class="support-parts">\n'+ tag`${ ky }` +"\n"+ tag`${ pr }` +"\n"+ tag`${ ag }` +"\n"+ tag`${ aw }` +"\n</div>";
+	const py = {name:		'PayPay',
+							title:	'PayPay',
+							desc:		document.forms.id_form1.PayPay_desc.value,
+							color:	document.forms.id_form1.PayPay_color.value,
+							}
+	const rp = {name:		'rakutenpay',
+							title:	'楽天ペイ',
+							desc:		document.forms.id_form1.rakutenpay_desc.value,
+							color:	document.forms.id_form1.rakutenpay_color.value,
+							}
+	document.getElementById("copyTarget").innerHTML = '<div class="support-parts">\n'+ tag`${ ky }` +"\n"+ tag`${ pr }` +"\n"+ tag`${ ag }` +"\n"+ tag`${ aw }` +"\n"+ tag`${ py }` +"\n"+ tag`${ rp }` +"\n</div>";
 }
 
 // ------------------------------

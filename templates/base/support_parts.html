@@ -25,7 +25,7 @@
 						<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#kyashid">コピーする</button>
 					</p>
 					<p align="center">
-						<img src="{% static 'img/aid/Kyash_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+						<img src="/static/img/aid/Kyash_qr.png" class="figure-img img-fluid rounded shadow-sm">
 					</p>
 					<p>
 						IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
@@ -63,7 +63,7 @@
 						<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#pringid">コピーする</button>
 					</p>
 					<p align="center">
-						<img src="{% static 'img/aid/pring_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+						<img src="/static/img/aid/pring_qr.png" class="figure-img img-fluid rounded shadow-sm">
 					</p>
 					<p>
 						IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
@@ -103,7 +103,7 @@
 						「Amazonギフト券(Eメールタイプ)」は場合によってはアカウントが停止される可能性が高いため、お手数ですが、500円単位で購入可能な「Amazonギフト券 商品券タイプ」を組み合わせて頂きたいです。
 					</p>
 					<p align="center">
-						<img src="{% static 'img/aid/Amazon_gift_price.png' %}" class="figure-img img-fluid rounded shadow-sm">
+						<img src="/static/img/aid/Amazon_gift_price.png" class="figure-img img-fluid rounded shadow-sm">
 					</p>
 					<p>
 						欲しい物リストページでは上記の様に「￥5000」と表示されていますが、カートに入れると500円分となります。<br>念の為ご確認ください。
@@ -147,6 +147,80 @@
 						詳しいご支援方法は
 						<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
 						をご参照ください。
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- モーダルに紐づくボタン PayPay -->
+	<button type="button" class="btn btn-red600_rsd" data-toggle="modal" data-target="#PayPay" title="PayPay">
+		<span class="icon-text-color">
+			<span class="d-flex align-items-center">
+				<span class="kihuicon-PayPay fb-2x"></span>
+			</span>
+		</span>
+	</button>
+	<!-- モーダル本体 PayPay -->
+	<div class="modal fade" id="PayPay" tabindex="-1" role="dialog" aria-labelledby="PayPay_label1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="PayPay_label2">PayPayで支援する</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+				<p>
+					ID：<input id="PayPayid" type="text" size="10" value="未登録" readonly>
+					<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#PayPayid">コピーする</button>
+				</p>
+				<p align="center">
+					<img src="/static/img/aid/PayPay_qr.png" class="figure-img img-fluid rounded shadow-sm">
+				</p>
+				<p>
+					IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
+				</p>
+				<p>詳しいご支援方法は
+					<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+					をご参照ください。
+				</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- モーダルに紐づくボタン 楽天ペイ -->
+	<button type="button" class="btn btn-pink300_rsd" data-toggle="modal" data-target="#rakutenpay" title="楽天ペイ">
+		<span class="icon-text-color">
+			<span class="d-flex align-items-center">
+				<span class="kihuicon-rakutenpay fb-2x"></span>
+			</span>
+		</span>
+	</button>
+	<!-- モーダル本体 楽天ペイ -->
+	<div class="modal fade" id="rakutenpay" tabindex="-1" role="dialog" aria-labelledby="rakutenpay_label1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="rakutenpay_label2">楽天ペイで支援する</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>
+						「楽天ペイ」の場合は私のアカウントを追加する必要はなく、送金額を指定してご作成いただいたリンクを、以下のいずれかからご連絡いただき、ご支援をお願い致します！
+					</p>
+					<p>
+						butanekotools＃gmail.com<br>
+						お手数ですが、＃を@に置き換えてください。
+					</p>
+					<p>
+						<a href="https://twitter.com/buta_neko_tools" target="_blank"><u>豚猫のTwitter</u></a>
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://pay.rakuten.co.jp/guide/send_receive/?l-id=guide_send_receive#content-send-without-addressbook" target="_blank"><u>こちら</u></a>
+						をご参照ください！
 					</p>
 				</div>
 			</div>

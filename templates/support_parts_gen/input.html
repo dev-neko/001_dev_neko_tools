@@ -10,30 +10,124 @@
 </head>
 <body>
 	<form name="form1" id="id_form1" action="">
-		<p>「kyash」の説明<br>
-			<textarea id="Kyash_desc" class="textarea-width100" rows="10">xxx</textarea>
-		</p>
-		<p>「kyash」のボタンの色<br>
-			<textarea id="Kyash_color" class="textarea-width100" rows="1">lightblue600_rsd</textarea>
-		</p>
-		<p>「pring」の説明<br>
-			<textarea id="pring_desc" class="textarea-width100" rows="10">bbb</textarea>
-		</p>
-		<p>「pring」のボタンの色<br>
-			<textarea id="pring_color" class="textarea-width100" rows="1">deeporange300_rsd</textarea>
-		</p>
-		<p>「Amazonギフト券」の説明<br>
-			<textarea id="Amazon_gift_desc" class="textarea-width100" rows="10">ddd</textarea>
-		</p>
-		<p>「Amazonギフト券」のボタンの色<br>
-			<textarea id="Amazon_gift_color" class="textarea-width100" rows="1">yellow600_rsd</textarea>
-		</p>
-		<p>「Amazon欲しい物リスト」の説明<br>
-			<textarea id="Amazon_wish_desc" class="textarea-width100" rows="10">ccc</textarea>
-		</p>
-		<p>「Amazon欲しい物リスト」のボタンの色<br>
-			<textarea id="Amazon_wish_color" class="textarea-width100" rows="1">teal300_rsd</textarea>
-		</p>
+
+		<p>「kyash」の説明</p>
+			<textarea id="Kyash_desc" class="textarea-width100" rows="10">
+					<p>
+						ID：<input id="kyashid" type="text" size="10" value="butaneko" readonly>
+						<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#kyashid">コピーする</button>
+					</p>
+					<p align="center">
+						<img src="{% static 'img/aid/Kyash_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+					</p>
+					<p>
+						IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
+					</p>
+					<p>
+						詳しいご支援方法は
+						<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+						をご参照ください。
+					</p></textarea>
+		<p>「kyash」のボタンの色</p>
+			<textarea id="Kyash_color" class="textarea-width100" rows="1">blue700_rsd</textarea>
+
+		<p>「pring」の説明</p>
+			<textarea id="pring_desc" class="textarea-width100" rows="10">
+					<p>
+						ID：<input id="pringid" type="text" size="10" value="butaneko" readonly>
+						<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#pringid">コピーする</button>
+					</p>
+					<p align="center">
+						<img src="{% static 'img/aid/pring_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+					</p>
+					<p>
+						IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+						をご参照ください。
+					</p></textarea>
+		<p>「pring」のボタンの色</p>
+			<textarea id="pring_color" class="textarea-width100" rows="1">deeporange500_rsd</textarea>
+
+		<p>「Amazonギフト券」の説明</p>
+			<textarea id="Amazon_gift_desc" class="textarea-width100" rows="10">
+					<p>
+						<a href="https://www.amazon.jp/hz/wishlist/ls/3A0I4YTMXPQGZ/" target="_blank"><u>豚猫の欲しいものリスト Amazonギフト券</u></a>
+						からご支援をお願い致します！
+					</p>
+					<p>
+						「Amazonギフト券(Eメールタイプ)」は場合によってはアカウントが停止される可能性が高いため、お手数ですが、500円単位で購入可能な「Amazonギフト券 商品券タイプ」を組み合わせて頂きたいです。
+					</p>
+					<p align="center">
+						<img src="{% static 'img/aid/Amazon_gift_price.png' %}" class="figure-img img-fluid rounded shadow-sm">
+					</p>
+					<p>
+						欲しい物リストページでは上記の様に「￥5000」と表示されていますが、カートに入れると500円分となります。<br>念の為ご確認ください。
+					</p>
+					<p>
+						詳しいご支援方法は
+						<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+						をご参照ください。
+					</p></textarea>
+		<p>「Amazonギフト券」のボタンの色</p>
+			<textarea id="Amazon_gift_color" class="textarea-width100" rows="1">yellow700_rsd</textarea>
+
+		<p>「Amazon欲しい物リスト」の説明</p>
+			<textarea id="Amazon_wish_desc" class="textarea-width100" rows="10">
+					<p>
+						<a href="https://www.amazon.jp/hz/wishlist/ls/3PPAPB0SPLNTS/" target="_blank"><u>豚猫のほしいものリスト</u></a>
+						からご支援をお願い致します！
+					</p>
+					<p>
+						どちらの商品をいただけてもとてもうれしいです！<br>頂いたものはブログでレビュー記事にして紹介させていただきます！
+					</p>
+					<p>
+						詳しいご支援方法は
+						<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+						をご参照ください。
+					</p></textarea>
+		<p>「Amazon欲しい物リスト」のボタンの色</p>
+			<textarea id="Amazon_wish_color" class="textarea-width100" rows="1">teal400_rsd</textarea>
+
+		<p>「PayPay」の説明</p>
+			<textarea id="PayPay_desc" class="textarea-width100" rows="10">
+				<p>
+					ID：<input id="PayPayid" type="text" size="10" value="未登録" readonly>
+					<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#PayPayid">コピーする</button>
+				</p>
+				<p align="center">
+					<img src="{% static 'img/aid/PayPay_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+				</p>
+				<p>
+					IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
+				</p>
+				<p>詳しいご支援方法は
+					<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+					をご参照ください。
+				</p></textarea>
+		<p>「PayPay」のボタンの色</p>
+			<textarea id="PayPay_color" class="textarea-width100" rows="1">red600_rsd</textarea>
+
+		<p>「楽天ペイ」の説明</p>
+			<textarea id="rakutenpay_desc" class="textarea-width100" rows="10">
+					<p>
+						「楽天ペイ」の場合は私のアカウントを追加する必要はなく、送金額を指定してご作成いただいたリンクを、以下のいずれかからご連絡いただき、ご支援をお願い致します！
+					</p>
+					<p>
+						butanekotools＃gmail.com<br>
+						お手数ですが、＃を@に置き換えてください。
+					</p>
+					<p>
+						<a href="https://twitter.com/buta_neko_tools" target="_blank"><u>豚猫のTwitter</u></a>
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://pay.rakuten.co.jp/guide/send_receive/?l-id=guide_send_receive#content-send-without-addressbook" target="_blank"><u>こちら</u></a>
+						をご参照ください！
+					</p></textarea>
+		<p>「楽天ペイ」のボタンの色</p>
+			<textarea id="rakutenpay_color" class="textarea-width100" rows="1">pink300_rsd</textarea>
+
 		<input type="button" value="生成" onclick="onButtonClick();" />
 	</form>
 	<p>このHTMLをブログに張り付けてください。<br>
