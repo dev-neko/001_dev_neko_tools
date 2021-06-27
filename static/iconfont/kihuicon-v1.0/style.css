@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'kihuicon';
   src:
-    url('fonts/kihuicon.ttf?112388') format('truetype'),
-    url('fonts/kihuicon.woff?112388') format('woff'),
-    url('fonts/kihuicon.svg?112388#kihuicon') format('svg');
+    url('fonts/kihuicon.ttf?1xqyg7') format('truetype'),
+    url('fonts/kihuicon.woff?1xqyg7') format('woff'),
+    url('fonts/kihuicon.svg?1xqyg7#kihuicon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -24,6 +24,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.kihuicon-rgram:before {
+  content: "\e90a";
+}
+.kihuicon-dbarai:before {
+  content: "\e907";
+}
+.kihuicon-quopay:before {
+  content: "\e908";
+}
+.kihuicon-merpay:before {
+  content: "\e90b";
+}
+.kihuicon-aupay:before {
+  content: "\e90c";
+}
+.kihuicon-jcoinpay:before {
+  content: "\e905";
+}
+.kihuicon-paypal:before {
+  content: "\e906";
+}
 .kihuicon-rakutenpay:before {
   content: "\e904";
 }

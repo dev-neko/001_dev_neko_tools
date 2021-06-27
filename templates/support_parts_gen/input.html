@@ -11,6 +11,8 @@
 <body>
 	<form name="form1" id="id_form1" action="">
 
+		{% with link_form="https://forms.gle/DYuUVUj5CXdmdG5h7" msg_form="https://forms.gle/6SRvMA3a5ZN3Phpe9" %}
+
 		<p>「kyash」の説明</p>
 			<textarea id="Kyash_desc" class="textarea-width100" rows="10">
 					<p>
@@ -21,15 +23,25 @@
 						<img src="{% static 'img/aid/Kyash_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
 					</p>
 					<p>
-						IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
+						上記のIDもしくはQRコードで検索して私のアカウントを追加していただき、ご支援をお願い致します！
 					</p>
 					<p>
-						詳しいご支援方法は
-						<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+						アカウントを追加して頂いた場合の詳しいご支援方法は
+						<a href="https://support.kyash.co/hc/ja/articles/900002413646-%E9%80%81%E9%87%91%E6%96%B9%E6%B3%95" target="_blank"><br><u>送金方法</u><br></a>
+						をご参照ください。
+					</p>
+					<p>
+						アカウントを追加せずに送金リンクをご作成いただく場合は
+						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						よりご連絡頂き、ご支援をお願い致します！
+					</p>
+					<p>
+						アカウントを追加せずに送金リンクをご作成いただく場合の詳しいご支援方法は
+						<a href="https://support.kyash.co/hc/ja/articles/360026167311-%E9%80%81%E9%87%91%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AE%E4%BD%9C%E6%88%90%E6%96%B9%E6%B3%95" target="_blank"><br><u>送金リンクの作成方法</u><br></a>
 						をご参照ください。
 					</p></textarea>
 		<p>「kyash」のボタンの色</p>
-			<textarea id="Kyash_color" class="textarea-width100" rows="1">blue700_rsd</textarea>
+			<textarea id="Kyash_color" class="textarea-width100" rows="1">blue600_rsd</textarea>
 
 		<p>「pring」の説明</p>
 			<textarea id="pring_desc" class="textarea-width100" rows="10">
@@ -48,7 +60,7 @@
 						をご参照ください。
 					</p></textarea>
 		<p>「pring」のボタンの色</p>
-			<textarea id="pring_color" class="textarea-width100" rows="1">deeporange500_rsd</textarea>
+			<textarea id="pring_color" class="textarea-width100" rows="1">brown400_rsd</textarea>
 
 		<p>「Amazonギフト券」の説明</p>
 			<textarea id="Amazon_gift_desc" class="textarea-width100" rows="10">
@@ -57,17 +69,23 @@
 						からご支援をお願い致します！
 					</p>
 					<p>
-						「Amazonギフト券(Eメールタイプ)」は場合によってはアカウントが停止される可能性が高いため、お手数ですが、500円単位で購入可能な「Amazonギフト券 商品券タイプ」を組み合わせて頂きたいです。
+						「Amazonギフト券(Eメールタイプ)」は場合によってはアカウントが停止される可能性が高いため、お手数ですが、500円単位で購入可能な「Amazonギフト券 商品券タイプ」を組み合わせて頂きただくか、商品詳細ページから任意の金額をご入力いただき、カートに追加して下さい。
 					</p>
 					<p align="center">
-						<img src="{% static 'img/aid/Amazon_gift_price.png' %}" class="figure-img img-fluid rounded shadow-sm">
+						<img src="/static/img/aid/Amazon_gift_price.png" class="figure-img img-fluid rounded shadow">
 					</p>
 					<p>
-						欲しい物リストページでは上記の様に「￥5000」と表示されていますが、カートに入れると500円分となります。<br>念の為ご確認ください。
+						欲しい物リストページでは上記の様に「￥5000」と表示されていますが、カートに入れると500円分となります。
+					</p>
+					<p align="center">
+						<img src="{% static 'img/aid/amazon_send_to.png' %}" class="figure-img img-fluid rounded shadow">
+					</p>
+					<p>
+						「お届け先住所」は上記の「豚猫」を選択してください。
 					</p>
 					<p>
 						詳しいご支援方法は
-						<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+						<a href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=GQ8WY4ELS2M747WL" target="_blank"><br><u>ほしい物リストから商品を購入する</u><br></a>
 						をご参照ください。
 					</p></textarea>
 		<p>「Amazonギフト券」のボタンの色</p>
@@ -76,15 +94,22 @@
 		<p>「Amazon欲しい物リスト」の説明</p>
 			<textarea id="Amazon_wish_desc" class="textarea-width100" rows="10">
 					<p>
-						<a href="https://www.amazon.jp/hz/wishlist/ls/3PPAPB0SPLNTS/" target="_blank"><u>豚猫のほしいものリスト</u></a>
+						<a href="https://www.amazon.jp/hz/wishlist/ls/3PPAPB0SPLNTS/" target="_blank"><u>豚猫の欲しいものリスト</u></a>
 						からご支援をお願い致します！
 					</p>
 					<p>
-						どちらの商品をいただけてもとてもうれしいです！<br>頂いたものはブログでレビュー記事にして紹介させていただきます！
+						どちらの商品をいただけてもとてもうれしいです！<br>
+						頂いたものはブログでレビュー記事にして紹介させていただきます！
+					</p>
+					<p align="center">
+						<img src="{% static 'img/aid/amazon_send_to.png' %}" class="figure-img img-fluid rounded shadow">
+					</p>
+					<p>
+						「お届け先住所」は上記の「豚猫」を選択してください。
 					</p>
 					<p>
 						詳しいご支援方法は
-						<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
+						<a href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=GQ8WY4ELS2M747WL" target="_blank"><br><u>ほしい物リストから商品を購入する</u><br></a>
 						をご参照ください。
 					</p></textarea>
 		<p>「Amazon欲しい物リスト」のボタンの色</p>
@@ -92,41 +117,136 @@
 
 		<p>「PayPay」の説明</p>
 			<textarea id="PayPay_desc" class="textarea-width100" rows="10">
-				<p>
-					ID：<input id="PayPayid" type="text" size="10" value="未登録" readonly>
-					<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#PayPayid">コピーする</button>
-				</p>
-				<p align="center">
-					<img src="{% static 'img/aid/PayPay_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
-				</p>
-				<p>
-					IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
-				</p>
-				<p>詳しいご支援方法は
-					<a href="https://ocd-danshi.com/goshien" target="_blank"><u>こちら</u></a>
-					をご参照ください。
-				</p></textarea>
+					<p>
+						ID：<input id="PayPayid" type="text" size="10" value="未登録" readonly>
+						<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#PayPayid">コピーする</button>
+					</p>
+					<p align="center">
+						<img src="{% static 'img/aid/PayPay_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+					</p>
+					<p>
+						上記のIDもしくはQRコードで検索して追加していただき、ご支援をお願い致します！
+					</p>
+					<p>
+						受け取りリンクをご作成いただく場合は
+						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						よりご連絡頂き、ご支援をお願い致します！
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://paypay.ne.jp/guide/send/" target="_blank"><br><u>PayPay残高を送る</u><br></a>
+						をご参照ください。
+					</p></textarea>
 		<p>「PayPay」のボタンの色</p>
 			<textarea id="PayPay_color" class="textarea-width100" rows="1">red600_rsd</textarea>
 
 		<p>「楽天ペイ」の説明</p>
 			<textarea id="rakutenpay_desc" class="textarea-width100" rows="10">
 					<p>
-						「楽天ペイ」の場合は私のアカウントを追加する必要はなく、送金額を指定してご作成いただいたリンクを、以下のいずれかからご連絡いただき、ご支援をお願い致します！
+						アプリから任意の送金金額を指定してご作成いただいたリンクを
+						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						よりご連絡頂き、ご支援をお願い致します！
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://pay.rakuten.co.jp/guide/send_receive/?l-id=guide_send_receive#content-send-without-addressbook" target="_blank"><br><u>楽天キャッシュの送り方・受け取り方→連絡先に入っていない相手に送る場合</u><br></a>
+						をご参照ください！
+					</p></textarea>
+		<p>「楽天ペイ」のボタンの色</p>
+			<textarea id="rakutenpay_color" class="textarea-width100" rows="1">pink300_rsd</textarea>
+
+		<p>「PayPal」の説明</p>
+			<textarea id="paypal_desc" class="textarea-width100" rows="10">
+					<p>
+						PCやアプリから以下の送金先のメールアドレスと任意の送金金額をご入力いただき、ご支援をお願い致します！
 					</p>
 					<p>
 						butanekotools＃gmail.com<br>
 						お手数ですが、＃を@に置き換えてください。
 					</p>
-					<p>
-						<a href="https://twitter.com/buta_neko_tools" target="_blank"><u>豚猫のTwitter</u></a>
-					</p>
 					<p>詳しいご支援方法は
-						<a href="https://pay.rakuten.co.jp/guide/send_receive/?l-id=guide_send_receive#content-send-without-addressbook" target="_blank"><u>こちら</u></a>
+						<a href="https://www.paypal.com/jp/webapps/mpp/support/send-money" target="_blank"><br><u>個人間での送金方法(個人)→友達や家族への送金方法</u><br></a>
 						をご参照ください！
 					</p></textarea>
-		<p>「楽天ペイ」のボタンの色</p>
-			<textarea id="rakutenpay_color" class="textarea-width100" rows="1">pink300_rsd</textarea>
+		<p>「PayPal」のボタンの色</p>
+			<textarea id="paypal_color" class="textarea-width100" rows="1">blue900_rsd</textarea>
+
+		<p>「6gram」の説明</p>
+			<textarea id="rgram_desc" class="textarea-width100" rows="10">
+					<p>
+						アカウント作成中
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://support.6gr.am/hc/ja/articles/900006324483--もらう-おくる-とは-" target="_blank"><br><u>「もらう/おくる」とは？</u><br></a>
+						をご参照ください！
+					</p></textarea>
+		<p>「6gram」のボタンの色</p>
+			<textarea id="rgram_color" class="textarea-width100" rows="1">deeporange600_rsd</textarea>
+
+		<p>「auPAY」の説明</p>
+			<textarea id="aupay_desc" class="textarea-width100" rows="10">
+					<p>
+						私が予め作成した
+						<a href="https://wallet.auone.jp/contents/sp/remittance/request.html?urlcode=%23wDwDwj0z1mkjvjVFaT3XNFMEMAMANINYNBNdYlMRNhQJbDA%3D" target="_blank"><br><u>千円分の送金リンク</u><br></a>
+						からご支援頂くか、他の金額にてご支援頂ける場合は
+						<a href="{{ msg_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						よりご連絡頂ければ、改めて送金リンクを作成いたします。
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://www.au.com/support/faq/detail/65/a00000000065/" target="_blank"><br><u>【au PAY プリペイドカード】au PAY 残高を送金したい→ウェブでの操作方法</u></a>
+						<a href="https://wallet.auone.jp/contents/sp/guide/moneytransfer.html" target="_blank"><br><u>au PAY 残高の送金・出金について→送金→アプリの場合</u><br></a>
+						をご参照ください！
+					</p></textarea>
+		<p>「auPAY」のボタンの色</p>
+			<textarea id="aupay_color" class="textarea-width100" rows="1">deeporange600_rsd</textarea>
+
+		<p>「d払い」の説明</p>
+			<textarea id="dbarai_desc" class="textarea-width100" rows="10">
+					<p align="center">
+						<img src="{% static 'img/aid/dbarai_money_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+					</p>
+					<p align="center">
+						<img src="{% static 'img/aid/dbarai_money_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+					</p>
+					<p>
+						上記の「送金受け取りQRコード」もしくは「dポイント受け取りQRコード」からご支援頂くか、ご作成いただいた「送金受け取り用リンク」を
+						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						よりご連絡頂き、ご支援をお願い致します！
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://service.smt.docomo.ne.jp/keitai_payment/guide/wallet/remit.html" target="_blank"><br><u>QRコードで送金・受け取り / 受け取り用リンクから送る</u><br></a>
+						をご参照ください！
+					</p></textarea>
+		<p>「d払い」のボタンの色</p>
+			<textarea id="dbarai_color" class="textarea-width100" rows="1">red600_rsd</textarea>
+
+		<p>「メルペイ」の説明</p>
+			<textarea id="merpay_desc" class="textarea-width100" rows="10">
+					<p>
+						アプリ内で任意の送金金額を指定してご発行頂いた「受け取りリンク」を
+						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						よりご連絡頂き、ご支援をお願い致します！
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://www.mercari.com/jp/help_center/article/994/" target="_blank"><br><u>メルペイ残高やポイントをおくるには？</u><br></a>
+						をご参照ください！
+					</p></textarea>
+		<p>「メルペイ」のボタンの色</p>
+			<textarea id="merpay_color" class="textarea-width100" rows="1">red600_rsd</textarea>
+
+		<p>「QUOPay」の説明</p>
+			<textarea id="quopay_desc" class="textarea-width100" rows="10">
+					<p>
+						<a href="https://pay.quocard.jp/" target="_blank"><br><u>QUOカードPay オンラインストア</u><br></a>よりご発行頂いた「ギフト用バリューコード」を
+						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						よりご連絡頂き、ご支援をお願い致します！
+					</p>
+					<p>詳しいご支援方法は
+						<a href="https://www.quocard.com/payec/guide/order.html" target="_blank"><br><u>ご注文方法</u><br></a>
+						をご参照ください！
+					</p></textarea>
+		<p>「QUOPay」のボタンの色</p>
+			<textarea id="quopay_color" class="textarea-width100" rows="1">blue600_rsd</textarea>
+
+		{% endwith %}
 
 		<input type="button" value="生成" onclick="onButtonClick();" />
 	</form>

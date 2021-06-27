@@ -4,34 +4,65 @@ function onButtonClick() {
 	const ky = {name:		'Kyash',
 							title:	'Kyash',
 							desc:		document.forms.id_form1.Kyash_desc.value,
-							color:	document.forms.id_form1.Kyash_color.value,
-							}
+							color:	document.forms.id_form1.Kyash_color.value}
 	const pr = {name:		'pring',
 							title:	'pring',
 							desc:		document.forms.id_form1.pring_desc.value,
-							color:	document.forms.id_form1.pring_color.value,
-							}
+							color:	document.forms.id_form1.pring_color.value}
 	const aw = {name:		'Amazon_wish',
 							title:	'Amazonほしい物リスト',
 							desc:		document.forms.id_form1.Amazon_wish_desc.value,
-							color:	document.forms.id_form1.Amazon_wish_color.value,
-							}
+							color:	document.forms.id_form1.Amazon_wish_color.value}
 	const ag = {name:		'Amazon_gift',
 							title:	'Amazonギフト券',
 							desc:		document.forms.id_form1.Amazon_gift_desc.value,
-							color:	document.forms.id_form1.Amazon_gift_color.value,
-							}
+							color:	document.forms.id_form1.Amazon_gift_color.value}
 	const py = {name:		'PayPay',
 							title:	'PayPay',
 							desc:		document.forms.id_form1.PayPay_desc.value,
-							color:	document.forms.id_form1.PayPay_color.value,
-							}
+							color:	document.forms.id_form1.PayPay_color.value}
 	const rp = {name:		'rakutenpay',
 							title:	'楽天ペイ',
 							desc:		document.forms.id_form1.rakutenpay_desc.value,
-							color:	document.forms.id_form1.rakutenpay_color.value,
-							}
-	document.getElementById("copyTarget").innerHTML = '<div class="support-parts">\n'+ tag`${ ky }` +"\n"+ tag`${ pr }` +"\n"+ tag`${ ag }` +"\n"+ tag`${ aw }` +"\n"+ tag`${ py }` +"\n"+ tag`${ rp }` +"\n</div>";
+							color:	document.forms.id_form1.rakutenpay_color.value}
+	const pp = {name:		'paypal',
+							title:	'PayPal',
+							desc:		document.forms.id_form1.paypal_desc.value,
+							color:	document.forms.id_form1.paypal_color.value}
+	const rg = {name:		'rgram',
+							title:	'6gram',
+							desc:		document.forms.id_form1.rgram_desc.value,
+							color:	document.forms.id_form1.rgram_color.value}
+	const ap = {name:		'aupay',
+							title:	'auPAY',
+							desc:		document.forms.id_form1.aupay_desc.value,
+							color:	document.forms.id_form1.aupay_color.value}
+	const db = {name:		'dbarai',
+							title:	'd払い',
+							desc:		document.forms.id_form1.dbarai_desc.value,
+							color:	document.forms.id_form1.dbarai_color.value}
+	const mp = {name:		'merpay',
+							title:	'メルペイ',
+							desc:		document.forms.id_form1.merpay_desc.value,
+							color:	document.forms.id_form1.merpay_color.value}
+	const qp = {name:		'quopay',
+							title:	'QUOPay',
+							desc:		document.forms.id_form1.quopay_desc.value,
+							color:	document.forms.id_form1.quopay_color.value}
+	document.getElementById("copyTarget").innerHTML = '<div class="support-parts">\n'+
+	 tag`${ rg }` +"\n"+
+	 tag`${ ky }` +"\n"+
+	 tag`${ ag }` +"\n"+
+	 tag`${ aw }` +"\n"+
+	 tag`${ py }` +"\n"+
+	 tag`${ pp }` +"\n"+
+	 tag`${ rp }` +"\n"+
+	 tag`${ db }` +"\n"+
+	 tag`${ qp }` +"\n"+
+	 tag`${ ap }` +"\n"+
+	 tag`${ pr }` +"\n"+
+	 tag`${ mp }` +"\n"+
+	 "</div>";
 }
 
 // ------------------------------
