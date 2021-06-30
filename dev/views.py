@@ -1,4 +1,5 @@
 from django.http import HttpResponse, Http404
+from django.shortcuts import render
 from django.template import loader
 import requests, bs4
 import datetime
@@ -273,3 +274,7 @@ def ysp_api_01(request):
 	template=loader.get_template("dev/ysp_api_01.html")
 	return HttpResponse(template.render({},request))
 
+# これでいいかも
+# お問い合わせフォーム画面
+# def contact_form(request):
+# 	return render(request,'contact/contact_form.html')
