@@ -11,7 +11,7 @@
 <body>
 	<form name="form1" id="id_form1" action="">
 
-		{% with link_form="https://forms.gle/DYuUVUj5CXdmdG5h7" msg_form="https://forms.gle/6SRvMA3a5ZN3Phpe9" %}
+		{% with contact_form="https://blog.dev-neko.com/contact" mail_address="safety_sub_address-devneko＃yahoo.co.jp" %}
 
 		<p>「kyash」の説明</p>
 			<textarea id="Kyash_desc" class="textarea-width100" rows="10">
@@ -32,7 +32,7 @@
 					</p>
 					<p>
 						アカウントを追加せずに送金リンクをご作成いただく場合は
-						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						<a href="{{ contact_form }}" target="_blank"><br><u>ブログのお問い合わせフォーム</u><br></a>
 						よりご連絡頂き、ご支援をお願い致します！
 					</p>
 					<p>
@@ -50,7 +50,7 @@
 						<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#pringid">コピーする</button>
 					</p>
 					<p align="center">
-						<img src="{% static 'img/aid/pring_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+						<img src="{% static 'img/aid/pring_qr_01.png' %}" class="figure-img img-fluid rounded shadow-sm">
 					</p>
 					<p>
 						IDで検索して追加していただくか、上記のQRコードで検索して追加していただき、ご支援をお願い致します！
@@ -122,14 +122,14 @@
 						<button type="button" onclick="alert('コピーしました！');" class="cbjs_btn" data-clipboard-target="#PayPayid">コピーする</button>
 					</p>
 					<p align="center">
-						<img src="{% static 'img/aid/PayPay_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+						<img src="{% static 'img/aid/paypay_qr_01.png' %}" class="figure-img img-fluid rounded shadow-sm">
 					</p>
 					<p>
 						上記のIDもしくはQRコードで検索して追加していただき、ご支援をお願い致します！
 					</p>
 					<p>
 						受け取りリンクをご作成いただく場合は
-						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						<a href="{{ contact_form }}" target="_blank"><br><u>ブログのお問い合わせフォーム</u><br></a>
 						よりご連絡頂き、ご支援をお願い致します！
 					</p>
 					<p>詳しいご支援方法は
@@ -143,7 +143,7 @@
 			<textarea id="rakutenpay_desc" class="textarea-width100" rows="10">
 					<p>
 						アプリから任意の送金金額を指定してご作成いただいたリンクを
-						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						<a href="{{ contact_form }}" target="_blank"><br><u>ブログのお問い合わせフォーム</u><br></a>
 						よりご連絡頂き、ご支援をお願い致します！
 					</p>
 					<p>詳しいご支援方法は
@@ -159,7 +159,7 @@
 						PCやアプリから以下の送金先のメールアドレスと任意の送金金額をご入力いただき、ご支援をお願い致します！
 					</p>
 					<p>
-						butanekotools＃gmail.com<br>
+						{{ mail_address }}<br>
 						お手数ですが、＃を@に置き換えてください。
 					</p>
 					<p>詳しいご支援方法は
@@ -171,8 +171,11 @@
 
 		<p>「6gram」の説明</p>
 			<textarea id="rgram_desc" class="textarea-width100" rows="10">
+					<p align="center">
+						<img src="{% static 'img/aid/6gram_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+					</p>
 					<p>
-						アカウント作成中
+						上記のQRコードからアカウントを追加していただき、ご支援をお願い致します！
 					</p>
 					<p>詳しいご支援方法は
 						<a href="https://support.6gr.am/hc/ja/articles/900006324483--もらう-おくる-とは-" target="_blank"><br><u>「もらう/おくる」とは？</u><br></a>
@@ -187,7 +190,7 @@
 						私が予め作成した
 						<a href="https://wallet.auone.jp/contents/sp/remittance/request.html?urlcode=%23wDwDwj0z1mkjvjVFaT3XNFMEMAMANINYNBNdYlMRNhQJbDA%3D" target="_blank"><br><u>千円分の送金リンク</u><br></a>
 						からご支援頂くか、他の金額にてご支援頂ける場合は
-						<a href="{{ msg_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						<a href="{{ contact_form }}" target="_blank"><br><u>ブログのお問い合わせフォーム</u><br></a>
 						よりご連絡頂ければ、改めて送金リンクを作成いたします。
 					</p>
 					<p>詳しいご支援方法は
@@ -201,14 +204,11 @@
 		<p>「d払い」の説明</p>
 			<textarea id="dbarai_desc" class="textarea-width100" rows="10">
 					<p align="center">
-						<img src="{% static 'img/aid/dbarai_money_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
-					</p>
-					<p align="center">
-						<img src="{% static 'img/aid/dbarai_money_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
+						<img src="{% static 'img/aid/dbarai_qr.png' %}" class="figure-img img-fluid rounded shadow-sm">
 					</p>
 					<p>
 						上記の「送金受け取りQRコード」もしくは「dポイント受け取りQRコード」からご支援頂くか、ご作成いただいた「送金受け取り用リンク」を
-						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						<a href="{{ contact_form }}" target="_blank"><br><u>ブログのお問い合わせフォーム</u><br></a>
 						よりご連絡頂き、ご支援をお願い致します！
 					</p>
 					<p>詳しいご支援方法は
@@ -222,7 +222,7 @@
 			<textarea id="merpay_desc" class="textarea-width100" rows="10">
 					<p>
 						アプリ内で任意の送金金額を指定してご発行頂いた「受け取りリンク」を
-						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						<a href="{{ contact_form }}" target="_blank"><br><u>ブログのお問い合わせフォーム</u><br></a>
 						よりご連絡頂き、ご支援をお願い致します！
 					</p>
 					<p>詳しいご支援方法は
@@ -236,7 +236,7 @@
 			<textarea id="quopay_desc" class="textarea-width100" rows="10">
 					<p>
 						<a href="https://pay.quocard.jp/" target="_blank"><u>QUOカードPay オンラインストア</u><br></a>よりご発行頂いた「ギフト用バリューコード」を
-						<a href="{{ link_form }}" target="_blank"><br><u>こちらのGoogleフォーム</u><br></a>
+						<a href="{{ contact_form }}" target="_blank"><br><u>ブログのお問い合わせフォーム</u><br></a>
 						よりご連絡頂き、ご支援をお願い致します！
 					</p>
 					<p>詳しいご支援方法は
