@@ -1,0 +1,242 @@
+<html>
+
+	<head>
+		<style type="text/css">
+.works_item {
+		list-style: none;
+		position: relative;
+		width: 200px;
+		border-radius: 2px;
+		margin: 0 auto;
+		background-color: #F2F2F2;
+}
+.works_modal_open {
+		height: 100px;
+		text-align: center;
+}
+.works_image_mask {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		opacity: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		-webkit-transition: all 0.6s ease;
+		transition: all 0.6s ease;
+		cursor: pointer;
+}
+.mask_text {
+		font-size: 1rem;
+		font-weight: bold;
+		text-align: center;
+		color: #fff;
+}
+.works_modal_content{
+		text-align: center;
+}
+.works_image:hover .works_image_mask {
+		opacity: 1;
+		padding-top: 13%;
+}
+/* ------works_modal css------ */
+.works_modal_wrapper {
+		position: fixed;
+		display: flex;
+		align-items: center;
+		width: 100vw;
+		height: 100vh;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		border: none;
+		opacity: 0;
+		z-index: -1;
+}
+.works_modal_window {
+		width: 80vw;
+		max-width: 1000px;
+		height: 80vh;
+		margin: auto;
+		padding: 15px;
+		background: #fff;
+		z-index: 1;
+		overflow-y: hidden;
+}
+.works_modal_content {
+		margin: 0 auto;
+		width: 80%;
+		height: 80%;
+}
+.works_modal_mask {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.7);
+}
+.works_modal_close {
+		z-index: 300;
+		position: absolute;
+		top: 0;
+		right: 10px;
+		color: #808080;
+		font-size: 1.5rem;
+		cursor: pointer;
+}
+.works_modal_close:hover {
+		color: #000;
+		transition: all .5s;
+}
+html.is_open, body.is_open {
+		overflow: hidden;
+}
+.works_modal_wrapper.is_open {
+		animation: works_modal_wrapper_open .5s ease forwards;
+}
+.works_modal_wrapper.is_open .works_modal_window {
+		animation: works_modal_window_open .5s ease forwards;
+}
+.works_modal_wrapper.is_close {
+		animation: works_modal_wrapper_close .5s ease forwards;
+}
+.works_modal_wrapper.is_close .works_modal_window {
+		animation: works_modal_window_close .5s ease forwards;
+}
+
+@keyframes works_modal_wrapper_open {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+			z-index: 300;
+		}
+	}
+	@keyframes works_modal_window_open {
+		0% {
+			opacity: 0;
+			transform: translateY(-30px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes works_modal_wrapper_close {
+		0% {
+			z-index: 300;
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+	@keyframes works_modal_window_close {
+		0% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(-30px);
+			opacity: 0;
+		}
+	}
+		</style>
+	</head>
+
+	<body>
+<ul class="works_list">
+<li class="works_item">
+<div class="works_image">
+<div class="works_modal_open" data-modal-open="modal-1">
+<p>モーダル①</p>
+<div class="works_image_mask">
+<div class="mask_text">クリックで拡大</div>
+</div>
+</div>
+<div class="works_modal_wrapper" data-modal="modal-1">
+<div class="works_modal_mask"></div>
+<div class="works_modal_window">
+<div class="works_modal_content">
+<h1>モーダル①</h1>
+<p>モーダル①の文章です！</p>
+</div>
+<div class="works_modal_close">✖</div>
+</div>
+</div>
+</div>
+</li>
+<li class="works_item">
+<div class="works_image">
+<div class="works_modal_open" data-modal-open="modal-2">
+<p>モーダル②</p>
+<div class="works_image_mask">
+<div class="mask_text">クリックで拡大</div>
+</div>
+</div>
+<div class="works_modal_wrapper" data-modal="modal-2">
+<div class="works_modal_mask"></div>
+<div class="works_modal_window">
+<div class="works_modal_content">
+<h1>モーダル②</h1>
+<p>モーダル②の文章です！</p>
+</div>
+<div class="works_modal_close">✖</div>
+</div>
+</div>
+</div>
+</li>
+<li class="works_item">
+<div class="works_image">
+<div class="works_modal_open" data-modal-open="modal-3">
+<p>モーダル③</p>
+<div class="works_image_mask">
+<div class="mask_text">クリックで拡大</div>
+</div>
+</div>
+<div class="works_modal_wrapper" data-modal="modal-3">
+<div class="works_modal_mask"></div>
+<div class="works_modal_window">
+<div class="works_modal_content">
+<h1>モーダル③</h1>
+<p>モーダル③の文章です！</p>
+</div>
+<div class="works_modal_close">✖</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+	</body>
+
+<script>
+const modalWrapOpen = function(e) {
+	const dataModalOpen = e.currentTarget.dataset.modalOpen;
+	Array.from(document.querySelectorAll('.works_modal_wrapper')).forEach((e, i) => {
+		if(e.getAttribute('data-modal') === dataModalOpen){
+			e.classList.toggle('is_open');
+		}
+	})
+}
+
+Array.from(document.querySelectorAll('.works_modal_open')).forEach((modalOpenElement) => {
+	modalOpenElement.addEventListener('click', modalWrapOpen);
+})
+
+const modalCloseAction = function(e) {
+	const targetModal = e.currentTarget.closest('.works_modal_wrapper');
+	targetModal.classList.toggle('is_open')
+};
+
+Array.from(document.querySelectorAll('.works_modal_close')).forEach((modalCloseElement) => {
+	modalCloseElement.addEventListener('click', modalCloseAction)
+})
+	</script>
+
+</html>

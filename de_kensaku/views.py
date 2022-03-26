@@ -10,20 +10,38 @@ def input(request):
 	return HttpResponse(template.render({}, request))
 
 def output(request):
-	# ショッピング系
-	# ['検索先名','検索用URL','検索文字の文字コード','カートURL','注文履歴']
-	# それ以外
-	# ['検索先名','検索用URL','検索文字の文字コード','トップページURL']
+	'''
+	基本
+	['検索先名',
+	'検索用URL',
+	'検索文字の文字コード',
+	'検索欄空欄で左半分をクリックしたときに開くページ',
+	'検索欄空欄で右半分をクリックしたときに開くページ']
+
+	ショッピング系
+	検索欄空欄で左半分をクリックしたときに開くページ→カートURL
+	検索欄空欄で右半分をクリックしたときに開くページ→注文履歴
+
+	検索系
+	検索欄空欄で左半分をクリックしたときに開くページ→トップページ
+	検索欄空欄で右半分をクリックしたときに開くページ→マイページ
+	'''
 	srch_url = [
-		#	サーチエンジン
-		['Google'
-			,'https://www.google.com/search?q=',
+	#	サーチエンジン
+		['Google',
+			'https://www.google.com/search?q=',
 			'',
-			''],
+			'https://www.google.com',
+			'https://myaccount.google.com'],
+		['価格.com',
+			'https://kakaku.com/search_results/',
+			'shift-jis',
+			'https://kakaku.com',
+			'https://ssl.kakaku.com/auth/mypage/notice/noticelist.aspx'],
 		['Yahoo!JAPAN',
-			'https://search.yahoo.co.jp/search?p=',
-			'',
-			''],
+				'https://search.yahoo.co.jp/search?p=',
+				'',
+				''],
 		['Bing',
 			'https://www.bing.com/search?q=',
 			'',
@@ -83,17 +101,17 @@ def output(request):
 			'https://auctions.yahoo.co.jp/search/search?p=',
 			'',
 			'https://auctions.yahoo.co.jp',
-			 ''],
+			'https://auctions.yahoo.co.jp/user/jp/show/mystatus'],
 		['ラクマ',
 			'https://fril.jp/search/',
 			'',
 			'https://fril.jp',
-			 ''],
+			'https://fril.jp/mypage'],
 		['メルカリ',
 			'https://www.mercari.com/jp/search/?keyword=',
 			'',
 			'https://www.mercari.com/jp',
-			 ''],
+			'https://www.mercari.com/jp/mypage/'],
 		#	動画
 		['YouTube',
 			'https://www.youtube.com/results?search_query=',
@@ -109,12 +127,12 @@ def output(request):
 			'https://video.fc2.com/search/video/?keyword=',
 			'',
 			'https://video.fc2.com',
-		 	''],
+			''],
 		['dailymotion',
 			'https://www.dailymotion.com/search/',
 			'',
 			'https://www.dailymotion.com',
-		 	''],
+			''],
 		#	チャット
 		['AmazonChat',
 			'https://www.amazon.co.jp/message-us?origRef=de_poc&muClientName=magus&ref_=de_poc',
@@ -127,32 +145,32 @@ def output(request):
 			'https://www.google.co.jp/maps/place/',
 			'euc-jp',
 			'https://www.google.co.jp/maps/@/data=!4m2!10m1!1e2',
-		 	''],
+			''],
 		['Yahoo!知恵袋',
 			'https://chiebukuro.yahoo.co.jp/search/?p=',
 			'',
 			'https://chiebukuro.yahoo.co.jp',
-		 	''],
+			''],
 		['note',
 			'https://note.mu/search?context=note&mode=search&q=',
 			'',
 			'https://note.mu',
-		 	''],
+			''],
 		['Twitter',
 			'https://twitter.com/search?q=',
 			'',
 			'https://twitter.com',
-		 	''],
+			''],
 		['Facebook',
 			'https://www.fo_srch_urlcebook.com/search/top/?q=',
 			'',
 			'https://www.fo_srch_urlcebook.com',
-		 	''],
+			''],
 		['GooglePlay',
 			'https://play.google.com/store/search?q=',
 			'',
 			'https://play.google.com',
-		 	''],
+			''],
 	]
 
 	input_data = request.POST["srch_str"]
@@ -177,7 +195,7 @@ def output(request):
 					# チャット系のアイコンをクリックした場合は検索欄が空欄でも何か入っていてもチャットのページを開く
 					if "Chat" in fo_srch_url[0]:
 						open_url = fo_srch_url[1]
-					# 検索欄に何も入力されていなかった場合はカートか購入履歴表示
+					# 検索欄に何も入力されていなかった場合はクリックした場所が左右どちらかで処理を分ける
 					elif input_data == "":
 						if int(request.POST[ fo_srch_url[0] + ".x" ]) < 45:
 							open_url = fo_srch_url[3]
