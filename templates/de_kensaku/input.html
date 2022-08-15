@@ -17,7 +17,8 @@
 	</head>
 
 	<body>
-		<form method="post" action="output" target="_blank">
+		<form id="search_form" method="post" action="output" target="_blank">
+
 			<div class="form-group">
 				<div class="row">
 					<div class="col-12 col-sm-10 col-md-8 col-lg-7">
@@ -58,300 +59,81 @@
 
 
 
-			<p><br><strong>サーチエンジン</strong>
-				<div class="form-row align-items-top">
 
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="Google" title="Google"
-											 src="{% static 'img/Google.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="価格.com" title="価格.com"
-											 src="{% static 'img/価格.com.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="Yahoo!JAPAN" title="Yahoo!JAPAN"
-											 src="{% static 'img/Yahoo!JAPAN.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="Bing" title="Bing"
-											 src="{% static 'img/Bing.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-				</div>
-			</p>
+			<!-- 中止ボタン -->
+			<div class="btn-group">
+				<!-- 「onFocus="this.blur()"」でボタンのフォーカス線を削除 -->
+				<!-- 「onclick」でページをリロードさせる -->
+				<input type="button" onFocus="this.blur()" class="btn btn-danger" value="リロード" onclick="window.location.reload();">
+			</div>
 
 
-			<p>
-				<span class="d-flex align-items-center">
-					<strong>ショッピング</strong>
-					<button type="button" class="btn btn-dark rounded-circle p-0"
-									style="width:20px;height:20px;position:relative;left:3px;"
-									data-trigger="focus"
-									data-placement="right"
-									data-toggle="popover"
-									data-html="true"
-									data-content="検索欄が空欄の状態でアイコンの左側をクリックするとカートページを開きます。<br>同様に、右側をクリックすると購入履歴ページを開きます。">？
-					</button>
-				</span>
-
-				<div class="form-row align-items-top">
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="Amazon" title="Amazon"
-											 src="{% static 'img/Amazon.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="ヨドバシ.com" title="ヨドバシ.com"
-											 src="{% static 'img/ヨドバシ.com.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="Yahoo!ショッピング" title="Yahoo!ショッピング"
-											 src="{% static 'img/Yahoo!ショッピング.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="楽天市場" title="楽天市場"
-											 src="{% static 'img/楽天市場.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="楽天西友ネットスーパー" title="楽天西友ネットスーパー"
-											 src="{% static 'img/楽天西友ネットスーパー.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<div class="img-posi">
-								<input type="image" name="LOHACO" title="LOHACO"
-											 src="{% static 'img/LOHACO.png' %}" width="90"><br>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="ビックカメラ.com" title="ビックカメラ.com"
-											 src="{% static 'img/ビックカメラ.com.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="アイリスプラザ" title="アイリスプラザ"
-											 src="{% static 'img/アイリスプラザ.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="サンコーレアモノショップ" title="サンコーレアモノショップ"
-											 src="{% static 'img/サンコーレアモノショップ.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</p>
 
 
-			<p><strong>オークション・フリマ</strong>
-				<p>検索文字空欄でトップページを開きます</p>
-				<div class="form-row align-items-top">
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="ヤフオク!" title="ヤフオク!"
-											 src="{% static 'img/ヤフオク!.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="ラクマ" title="ラクマ"
-											 src="{% static 'img/ラクマ.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="メルカリ" title="メルカリ"
-											 src="{% static 'img/メルカリ.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</p>
 
 
-			<p><strong>動画サービス</strong>
-				<p>検索文字空欄でトップページを開きます</p>
-				<div class="form-row align-items-top">
 
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="YouTube" title="YouTube"
-											 src="{% static 'img/YouTube.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
+			{% include 'help_modal/help_modal_template.html' with header='<span style="font-size:1.1rem;">サーチエンジン</span>' modal_id='search' modal_title='サンプルテキスト' include_body=False modal_body='<p>サンプルテキスト</p>' only %}
+			<div class="form-row">
+				{% include 'de_kensaku/image_button_template.html' with name='Google' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='価格.com' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='Yahoo!JAPAN' only %}
+				{% comment ’Bingはモーダルだけでいいかも’ %}
+				{% include 'de_kensaku/image_button_template.html' with name='Bing' only %}
+				{% endcomment %}
+				{% include 'de_kensaku/search_modal_template.html' with header='<span style="font-size:1.1rem;">サーチエンジン</span>' modal_title='サンプルテキスト' name='Bing' only %}
+			</div>
 
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="ニコニコ動画" title="ニコニコ動画"
-											 src="{% static 'img/ニコニコ動画.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
+			{% include 'help_modal/help_modal_template.html' with header='<span style="font-size:1.1rem;">ショッピング</span>' modal_id='shop' modal_title='サンプルテキスト' include_body=False modal_body='<p>検索欄が空欄の状態でアイコンの左側をクリックするとカートページを開きます。</p><p>同様に、右側をクリックすると購入履歴ページを開きます。</p>' only %}
+			<div class="form-row">
+				{% include 'de_kensaku/image_button_template.html' with name='Amazon' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='ヨドバシ.com' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='Yahoo!ショッピング' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='楽天市場' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='楽天西友ネットスーパー' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='LOHACO' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='ビックカメラ.com' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='アイリスプラザ' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='サンコーレアモノショップ' only %}
+			</div>
 
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="FC2動画" title="FC2動画"
-											 src="{% static 'img/FC2動画.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
+			{% include 'help_modal/help_modal_template.html' with header='<span style="font-size:1.1rem;">オークション・フリマ</span>' modal_id='auction_fleamarket' modal_title='サンプルテキスト' include_body=False modal_body='<p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p>' only %}
+			<div class="form-row">
+				{% include 'de_kensaku/image_button_template.html' with name='ヤフオク!' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='ラクマ' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='メルカリ' only %}
+			</div>
 
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="dailymotion" title="dailymotion"
-											 src="{% static 'img/dailymotion.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
+			{% include 'help_modal/help_modal_template.html' with header='<span style="font-size:1.1rem;">動画サービス</span>' modal_id='video' modal_title='サンプルテキスト' include_body=False modal_body='<p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p>' only %}
+			<div class="form-row">
+				{% include 'de_kensaku/image_button_template.html' with name='YouTube' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='ニコニコ動画' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='FC2動画' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='dailymotion' only %}
+			</div>
 
-				</div>
-			</p>
+			{% include 'help_modal/help_modal_template.html' with header='<span style="font-size:1.1rem;">チャットで問い合わせ</span>' modal_id='chat' modal_title='サンプルテキスト' include_body=False modal_body='<p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p>' only %}
+			<div class="form-row">
+				{% include 'de_kensaku/image_button_template.html' with name='AmazonChat' only %}
+			</div>
 
+			{% include 'help_modal/help_modal_template.html' with header='<span style="font-size:1.1rem;">その他</span>' modal_id='other' modal_title='サンプルテキスト' include_body=False modal_body='<p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p>' only %}
+			<div class="form-row">
+				{% include 'de_kensaku/image_button_template.html' with name='Yahoo!知恵袋' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='note' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='Twitter' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='Facebook' only %}
+				{% include 'de_kensaku/image_button_template.html' with name='GooglePlay' only %}
+			</div>
 
-			<p><strong>チャットで問い合わせ</strong>
-				<div class="form-row align-items-top">
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="AmazonChat" title="Amazon"
-											 src="{% static 'img/AmazonChat.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</p>
-
-
-			<p><strong>その他</strong>
-				<p>検索文字空欄でトップページを開きます</p>
-				<div class="form-row align-items-top">
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="Yahoo!知恵袋" title="Yahoo!知恵袋"
-											 src="{% static 'img/Yahoo!知恵袋.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="note" title="note"
-											 src="{% static 'img/note.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="Twitter" title="Twitter"
-											 src="{% static 'img/Twitter.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="Facebook" title="Facebook"
-											 src="{% static 'img/Facebook.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-auto">
-						<div class="text-posi">
-							<div class="dropshadow">
-								<input type="image" name="GooglePlay" title="GooglePlay"
-											 src="{% static 'img/GooglePlay.png' %}" width="90"><br>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</p>
 		</form>
 	</body>
 
 	<script type="text/javascript" src="{% static 'js/input.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/help_modal.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/search_modal.js' %}"></script>
+
+
 
 </html>
 {% endblock %}

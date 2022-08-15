@@ -47,5 +47,24 @@ outline: none;
 	outline: none;
 }
 
-
-
+/*画像を角丸にする*/
+.custum_img_radius {
+	border-radius: 15px;
+}
+/*
+モーダルを横幅いっぱいにする
+https://www.e-pokke.com/blog/bootstrap4-modal-width.html
+*/
+.modal_dialog_fluid {
+	max-width: inherit;
+	width: 98%;
+	margin-left: 15px;
+ }
+/*
+iframeを横幅いっぱいにして、高さをウィンドウサイズの70%くらいにする
+https://programming-jissen.com/how-to-limit-the-height-of-a-modal-dialog/
+*/
+.resize_iframe{
+	width:100%;
+	height:70vh;
+}}

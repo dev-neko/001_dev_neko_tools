@@ -1,0 +1,13 @@
+{% load static %}
+{% with 'img/'|add:name|add:'.png' as imagedir %}
+<div class="col-auto">
+	<div class="shadow custum_img_radius mb-4 ml-3">
+		<input type="image"
+					 name="{{ name }}"
+					 title="{{ name }}"
+					 src="{% static imagedir %}"
+					 width="90"
+					 class="custum_img_radius">
+	</div>
+</div>
+{% endwith %}
