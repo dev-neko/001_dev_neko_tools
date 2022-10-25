@@ -6,11 +6,6 @@ from django.template import loader
 from django.utils.datastructures import MultiValueDictKeyError
 
 
-def input(request):
-	template = loader.get_template("de_kensaku/input.html")
-	return HttpResponse(template.render({}, request))
-
-
 def output_01(request):
 	'''
 	基本
@@ -29,150 +24,150 @@ def output_01(request):
 	検索欄空欄で右半分をクリックしたときに開くページ→マイページ
 	'''
 	srch_url = [
-	#	サーチエンジン
+		#	サーチエンジン
 		['Google',
-			'https://www.google.com/search?q=',
-			'',
-			'https://www.google.com',
-			'https://myaccount.google.com'],
+		 'https://www.google.com/search?q=',
+		 '',
+		 'https://www.google.com',
+		 'https://myaccount.google.com'],
 		['価格.com',
-			'https://kakaku.com/search_results/',
-			'shift-jis',
-			'https://kakaku.com',
-			'https://ssl.kakaku.com/auth/mypage/notice/noticelist.aspx'],
+		 'https://kakaku.com/search_results/',
+		 'shift-jis',
+		 'https://kakaku.com',
+		 'https://ssl.kakaku.com/auth/mypage/notice/noticelist.aspx'],
 		['Yahoo!JAPAN',
-				'https://search.yahoo.co.jp/search?p=',
-				'',
-				''],
+		 'https://search.yahoo.co.jp/search?p=',
+		 '',
+		 ''],
 		['Bing',
-			'https://www.bing.com/search?q=',
-			'',
-			''],
+		 'https://www.bing.com/search?q=',
+		 '',
+		 ''],
 		['URLを直接開く',
-			'',
-			'',
-			''],
+		 '',
+		 '',
+		 ''],
 		#	ショッピング
 		['Amazon',
-			 'https://www.amazon.co.jp/s?k=',
-			 '',
-			 'https://www.amazon.co.jp/gp/cart/view.html',
-			 'https://www.amazon.co.jp/gp/css/order-history'],
+		 'https://www.amazon.co.jp/s?k=',
+		 '',
+		 'https://www.amazon.co.jp/gp/cart/view.html',
+		 'https://www.amazon.co.jp/gp/css/order-history'],
 		['ヨドバシ.com',
-			 'https://www.yodobashi.com/?word=',
-			 '',
-			 'https://order.yodobashi.com/yc/shoppingcart/index.html',
-			 'https://order.yodobashi.com/yc/orderhistory/index.html'],
+		 'https://www.yodobashi.com/?word=',
+		 '',
+		 'https://order.yodobashi.com/yc/shoppingcart/index.html',
+		 'https://order.yodobashi.com/yc/orderhistory/index.html'],
 		['Yahoo!ショッピング',
-			 'https://shopping.yahoo.co.jp/search?p=',
-			 '',
-			 'https://order.shopping.yahoo.co.jp/cgi-bin/cart-form',
-			 'https://odhistory.shopping.yahoo.co.jp/cgi-bin/history-list'],
+		 'https://shopping.yahoo.co.jp/search?p=',
+		 '',
+		 'https://order.shopping.yahoo.co.jp/cgi-bin/cart-form',
+		 'https://odhistory.shopping.yahoo.co.jp/cgi-bin/history-list'],
 		['楽天市場',
-			 'https://search.rakuten.co.jp/search/mall/',
-			 '',
-			 'https://basket.step.rakuten.co.jp/rms/mall/bs/cart/',
-			 'https://order.my.rakuten.co.jp/'],
+		 'https://search.rakuten.co.jp/search/mall/',
+		 '',
+		 'https://basket.step.rakuten.co.jp/rms/mall/bs/cart/',
+		 'https://order.my.rakuten.co.jp/'],
 		['LOHACO',
-			 'https://lohaco.jp/ksearch/?searchWord=',
-			 '',
-			 'https://lohaco.jp/sf/cart/',
-			 'https://lohaco.jp/odr/order/purchaseHistoryView/'],
+		 'https://lohaco.jp/ksearch/?searchWord=',
+		 '',
+		 'https://lohaco.jp/sf/cart/',
+		 'https://lohaco.jp/odr/order/purchaseHistoryView/'],
 		['楽天西友ネットスーパー',
-			 'https://sm.rakuten.co.jp/search?keyword=',
-			 '',
-			 'https://sm.rakuten.co.jp/step/cart',
-			 'https://sm.rakuten.co.jp/mypage/order'],
+		 'https://sm.rakuten.co.jp/search?keyword=',
+		 '',
+		 'https://sm.rakuten.co.jp/step/cart',
+		 'https://sm.rakuten.co.jp/mypage/order'],
 		['ビックカメラ.com',
-			 'https://www.biccamera.com/bc/category/?q=',
-			 'shift-jis',
-			 'https://www.biccamera.com/bc/cart/CCtViewCart_001.jsp',
-			 'https://www.biccamera.com/bc/member/CMmOrderHistory.jsp'],
+		 'https://www.biccamera.com/bc/category/?q=',
+		 'shift-jis',
+		 'https://www.biccamera.com/bc/cart/CCtViewCart_001.jsp',
+		 'https://www.biccamera.com/bc/member/CMmOrderHistory.jsp'],
 		['アイリスプラザ',
-			 'https://www.irisplaza.co.jp/index.php?KB=SEARCH&CID=&itemnm=',
-			 'shift-jis',
-			 'https://www.irisplaza.co.jp/isc_Cartins.php',
-			 'https://www.irisplaza.co.jp/Isc_Rireki.php'],
+		 'https://www.irisplaza.co.jp/index.php?KB=SEARCH&CID=&itemnm=',
+		 'shift-jis',
+		 'https://www.irisplaza.co.jp/isc_Cartins.php',
+		 'https://www.irisplaza.co.jp/Isc_Rireki.php'],
 		['サンコーレアモノショップ',
-			 'https://www.thanko.jp/shop/shopbrand.html?search=',
-			 'euc-jp',
-			 'https://www.thanko.jp/shop/basket.html',
-			 'https://www.makeshop.jp/ssl/ssl_confirm/confirm.html'],
+		 'https://www.thanko.jp/shop/shopbrand.html?search=',
+		 'euc-jp',
+		 'https://www.thanko.jp/shop/basket.html',
+		 'https://www.makeshop.jp/ssl/ssl_confirm/confirm.html'],
 		#	オークション・フリマ
 		['ヤフオク!',
-			'https://auctions.yahoo.co.jp/search/search?p=',
-			'',
-			'https://auctions.yahoo.co.jp',
-			'https://auctions.yahoo.co.jp/user/jp/show/mystatus'],
+		 'https://auctions.yahoo.co.jp/search/search?p=',
+		 '',
+		 'https://auctions.yahoo.co.jp',
+		 'https://auctions.yahoo.co.jp/user/jp/show/mystatus'],
 		['ラクマ',
-			'https://fril.jp/search/',
-			'',
-			'https://fril.jp',
-			'https://fril.jp/mypage'],
+		 'https://fril.jp/search/',
+		 '',
+		 'https://fril.jp',
+		 'https://fril.jp/mypage'],
 		['メルカリ',
-			'https://www.mercari.com/jp/search/?keyword=',
-			'',
-			'https://www.mercari.com/jp',
-			'https://www.mercari.com/jp/mypage/'],
+		 'https://www.mercari.com/jp/search/?keyword=',
+		 '',
+		 'https://www.mercari.com/jp',
+		 'https://www.mercari.com/jp/mypage/'],
 		#	動画
 		['YouTube',
-			'https://www.youtube.com/results?search_query=',
-			'',
-			'https://www.youtube.com',
-			 ''],
+		 'https://www.youtube.com/results?search_query=',
+		 '',
+		 'https://www.youtube.com',
+		 ''],
 		['ニコニコ動画',
-			'https://www.nicovideo.jp/search/',
-			'',
-			'https://www.nicovideo.jp',
-			 ''],
+		 'https://www.nicovideo.jp/search/',
+		 '',
+		 'https://www.nicovideo.jp',
+		 ''],
 		['FC2動画',
-			'https://video.fc2.com/search/video/?keyword=',
-			'',
-			'https://video.fc2.com',
-			''],
+		 'https://video.fc2.com/search/video/?keyword=',
+		 '',
+		 'https://video.fc2.com',
+		 ''],
 		['dailymotion',
-			'https://www.dailymotion.com/search/',
-			'',
-			'https://www.dailymotion.com',
-			''],
+		 'https://www.dailymotion.com/search/',
+		 '',
+		 'https://www.dailymotion.com',
+		 ''],
 		#	チャット
 		['AmazonChat',
-			'https://www.amazon.co.jp/message-us?origRef=de_poc&muClientName=magus&ref_=de_poc',
-			'',
-			'',
-			''],
+		 'https://www.amazon.co.jp/message-us?origRef=de_poc&muClientName=magus&ref_=de_poc',
+		 '',
+		 '',
+		 ''],
 		#	その他
 		# 検索欄空欄でマイプレイス
 		['Googleマップ',
-			'https://www.google.co.jp/maps/place/',
-			'euc-jp',
-			'https://www.google.co.jp/maps/@/data=!4m2!10m1!1e2',
-			''],
+		 'https://www.google.co.jp/maps/place/',
+		 'euc-jp',
+		 'https://www.google.co.jp/maps/@/data=!4m2!10m1!1e2',
+		 ''],
 		['Yahoo!知恵袋',
-			'https://chiebukuro.yahoo.co.jp/search/?p=',
-			'',
-			'https://chiebukuro.yahoo.co.jp',
-			''],
+		 'https://chiebukuro.yahoo.co.jp/search/?p=',
+		 '',
+		 'https://chiebukuro.yahoo.co.jp',
+		 ''],
 		['note',
-			'https://note.mu/search?context=note&mode=search&q=',
-			'',
-			'https://note.mu',
-			''],
+		 'https://note.mu/search?context=note&mode=search&q=',
+		 '',
+		 'https://note.mu',
+		 ''],
 		['Twitter',
-			'https://twitter.com/search?q=',
-			'',
-			'https://twitter.com',
-			''],
+		 'https://twitter.com/search?q=',
+		 '',
+		 'https://twitter.com',
+		 ''],
 		['Facebook',
-			'https://www.fo_srch_urlcebook.com/search/top/?q=',
-			'',
-			'https://www.fo_srch_urlcebook.com',
-			''],
+		 'https://www.fo_srch_urlcebook.com/search/top/?q=',
+		 '',
+		 'https://www.fo_srch_urlcebook.com',
+		 ''],
 		['GooglePlay',
-			'https://play.google.com/store/search?q=',
-			'',
-			'https://play.google.com',
-			''],
+		 'https://play.google.com/store/search?q=',
+		 '',
+		 'https://play.google.com',
+		 ''],
 	]
 
 	input_data=request.POST["srch_str"]
@@ -218,6 +213,12 @@ def output_01(request):
 
 	return HttpResponseRedirect(open_url)
 
+
+def input(request):
+	template = loader.get_template("de_kensaku/input.html")
+	return HttpResponse(template.render({}, request))
+
+
 def output(request):
 	'''
 	'検索先名':['検索用URL',
@@ -229,6 +230,8 @@ def output(request):
 	ショッピング系
 	検索欄空欄で左半分をクリックしたときに開くページ→カートURL
 	検索欄空欄で右半分をクリックしたときに開くページ→注文履歴
+	追加候補
+	お気に入り、マイページ、
 
 	検索系
 	検索欄空欄で左半分をクリックしたときに開くページ→トップページ
@@ -287,6 +290,12 @@ def output(request):
 									 'https://sm.rakuten.co.jp/step/cart',
 									 'https://sm.rakuten.co.jp/mypage/order',
 									 ],
+		'タスカル':[
+			'https://www.tasucallshop.com/search.php?ct=0&sk=',
+			None,
+			'https://www.tasucallshop.com/cart.php',
+			'https://www.tasucallshop.com/mypage_history.php',
+		],
 		'ビックカメラ.com':['https://www.biccamera.com/bc/category/?q=',
 									'shift-jis',
 									'https://www.biccamera.com/bc/cart/CCtViewCart_001.jsp',
@@ -391,10 +400,10 @@ def output(request):
 		srch_url_key=list(request.POST.keys())[-1].replace('.y','')
 		posion_x=int(request.POST[srch_url_key+'.x'])
 		posion_y=int(request.POST[srch_url_key+'.y'])
-		print(f'input_data:{input_data}')
-		print(f'srch_url_key:{srch_url_key}')
-		print(f'posion_x:{posion_x}')
-		print(f'posion_y:{posion_y}')
+		# print(f'input_data:{input_data}')
+		# print(f'srch_url_key:{srch_url_key}')
+		# print(f'posion_x:{posion_x}')
+		# print(f'posion_y:{posion_y}')
 
 		# 「http://」か「https://」から始まるときはそのままURLを開く
 		if input_data.startswith("http://") or input_data.startswith("https://"):
