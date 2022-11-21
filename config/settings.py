@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 
 
 # Herokuでエラーを表示させるために追加
@@ -10,7 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS=['*']
 
-SECRET_KEY=os.environ.get('SECRET_KEY')
+# SECRET_KEY=os.environ.get('SECRET_KEY')
+SECRET_KEY=get_random_secret_key()
 
 INSTALLED_APPS = [
     'django.contrib.admin',
