@@ -7,6 +7,9 @@ from django.core.management.utils import get_random_secret_key
 DEBUG=False
 # DEBUG=True
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS=['*']
