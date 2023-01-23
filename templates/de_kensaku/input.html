@@ -118,6 +118,7 @@
 
 			{% include 'help_modal/help_modal_template.html' with header='<span style="font-size:1.1rem;">その他</span>' modal_id='other' modal_title='サンプルテキスト' include_body=False modal_body='<p>サンプルテキスト</p><p>サンプルテキスト</p><p>サンプルテキスト</p>' only %}
 			<div class="form-row">
+				{% include 'de_kensaku/image_button_template.html' with name='Googleマップ' only %}
 				{% include 'de_kensaku/image_button_template.html' with name='Yahoo!知恵袋' only %}
 				{% include 'de_kensaku/image_button_template.html' with name='note' only %}
 				{% include 'de_kensaku/image_button_template.html' with name='Twitter' only %}

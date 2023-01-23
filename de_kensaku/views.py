@@ -239,11 +239,12 @@ def output(request):
 	'''
 	srch_url_dict={
 		# サーチエンジン
-		'Google':['https://www.google.com/search?q=',
-							None,
-							'https://www.google.com',
-							'https://myaccount.google.com',
-							],
+		'Google':[
+			'https://www.google.com/search?q=',
+			None,
+			'https://www.google.com',
+			'https://myaccount.google.com',
+		],
 		'価格.com':['https://kakaku.com/search_results/',
 							'shift-jis',
 							'https://kakaku.com',
@@ -355,9 +356,9 @@ def output(request):
 									''],
 		#	その他
 		# 検索欄空欄でマイプレイス
-		'Googleマップ':['https://www.google.co.jp/maps/place/',
-								 'euc-jp',
-		             'https://www.google.co.jp/maps',
+		'Googleマップ':['https://www.google.co.jp/maps/search/',
+								 None,
+								 'https://www.google.co.jp/maps',
 								 'https://www.google.co.jp/maps/@/data=!4m2!10m1!1e1',
 								 ],
 		'Yahoo!知恵袋':['https://chiebukuro.yahoo.co.jp/search/?p=',
